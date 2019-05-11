@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[第一篇文章]]></title>
-    <url>%2Fhexo%2F2019%2F05%2F11%2F%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[测试一下]]></title>
-    <url>%2Fhexo%2F2019%2F05%2F11%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[第一篇文章，测试测试功能]]></content>
+    <title><![CDATA[Hellow World]]></title>
+    <url>%2Fhexo%2F2019%2F05%2F11%2FHellow-World%2F</url>
+    <content type="text"><![CDATA[倒腾了很久，终于把个人网站门面弄得七七八八了，第一篇文章记录下本站的降临。不会叙述的特别详细，因为大部分资料网上都有，大致写下流程，记录下踩得坑。 服务器购买在阿里云买了一台服务器，用于个人站点的载体，镜像选择的是Ubuntu，期间有用过Windows Server，但是木有命令行操作的快感，所有又换了回来。镜像阿里云会自带的有，具体操作也有相关描述，没有什么难点，需要记住分配的公网IP地址，用于域名映射。 域名购买考虑到使用的方便，又花了几百大洋，在腾讯云购买了同名域名www.liangqili.com，个人账号需要实名认证，域名需要备案。这里有个操作需要注意，就是要将域名解析到服务器，这样才能通过域名访问到服务器。在域名管理里面，下载证书，用于后期搭建https服务。 SSL证书申请后续准备使用https服务，需要申请SSL证书。腾讯云有免费证书可以申请，按照步骤申请，绑定已经申请的域名，并下载证书，留存后用。 服务器配置完成以上的前期工作，接下来就需要进行服务器搭建工作。 ssh链接服务器ssh链接Ubuntu进行搭建工作 服务器选型Nginx、Apache2均可，我这里选择使用Apache2作为服务器 首先更新下Ubuntu系统软件 123sudo apt-get update # 获取最新资源包 sudo apt-get upgrade # 本机软件全部更新 sudo apt-get dist-upgrade # 本机系统软件更新 安装LAMP万能服务端环境 1sudo apt-get install lamp-server^ #不要忘记^ 等待安装完成，过程不难，如有问题，百度谷歌一下]]></content>
       <categories>
-        <category>学习笔记</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>node.js</tag>
-        <tag>express</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
