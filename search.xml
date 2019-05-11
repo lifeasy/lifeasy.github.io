@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[第一篇文章]]></title>
+    <url>%2Fhexo%2F2019%2F05%2F11%2F%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[测试一下]]></title>
+    <url>%2Fhexo%2F2019%2F05%2F11%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[第一篇文章，测试测试功能]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>node.js</tag>
+        <tag>express</tag>
+      </tags>
+  </entry>
+</search>
