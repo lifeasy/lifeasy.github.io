@@ -115,17 +115,33 @@
 
 
 
-  <meta name="description" content="健身搬砖了解一下">
-<meta name="keywords" content="健身 编程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lifeasy">
-<meta property="og:url" content="https://www.liangqili.com/hexo/index.html">
+  <meta name="description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。    如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关信">
+<meta name="keywords" content="SiriKit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SiriKit个人使用总结">
+<meta property="og:url" content="https://www.liangqili.com/hexo/2019/05/31/SiriKit个人使用总结/index.html">
 <meta property="og:site_name" content="Lifeasy">
-<meta property="og:description" content="健身搬砖了解一下">
+<meta property="og:description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。    如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关信">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/wxsuccess.jpeg">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/wxfailure.jpeg">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/pageadd.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/add.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/order.png">
+<meta property="og:image" content="https://docs-assets.developer.apple.com/published/63ea07d81b/16f9b205-2c79-4bea-b89a-2ef26bc71ef1.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/SiriKit%E7%A4%BA%E4%BE%8B%E5%9B%BE.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/%E6%B7%BB%E5%8A%A0Siri_Capabilities.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_Extension.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_target.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_plist.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_lifecycle.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_lifecycle_2.jpg">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_ui_lifecycle.png">
+<meta property="og:updated_time" content="2019-05-31T05:54:06.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lifeasy">
-<meta name="twitter:description" content="健身搬砖了解一下">
+<meta name="twitter:title" content="SiriKit个人使用总结">
+<meta name="twitter:description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。    如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关信">
+<meta name="twitter:image" content="http://image.liangqili.com/SiriKit/wxsuccess.jpeg">
 
 
 
@@ -133,7 +149,7 @@
 
   
   
-  <link rel="canonical" href="https://www.liangqili.com/hexo/">
+  <link rel="canonical" href="https://www.liangqili.com/hexo/2019/05/31/SiriKit个人使用总结/">
 
 
 
@@ -143,7 +159,7 @@
   };
 </script>
 
-  <title>Lifeasy</title>
+  <title>SiriKit个人使用总结 | Lifeasy</title>
   
 
 
@@ -191,8 +207,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -354,9 +369,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -388,10 +403,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/hexo/2019/05/31/SiriKit个人使用总结/" class="post-title-link" itemprop="url">SiriKit个人使用总结</a>
+          <h1 class="post-title" itemprop="name headline">SiriKit个人使用总结
+
               
             
           </h1>
@@ -484,9 +497,7 @@
       
 
       
-        
-          
-            <h4 id="SiriKit"><a href="#SiriKit" class="headerlink" title="SiriKit"></a>SiriKit</h4><h5 id="可以做什么？"><a href="#可以做什么？" class="headerlink" title="可以做什么？"></a>可以做什么？</h5><ul>
+        <h4 id="SiriKit"><a href="#SiriKit" class="headerlink" title="SiriKit"></a>SiriKit</h4><h5 id="可以做什么？"><a href="#可以做什么？" class="headerlink" title="可以做什么？"></a>可以做什么？</h5><ul>
 <li>SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升</li>
 </ul>
 <h5 id="iOS12之前的Siri"><a href="#iOS12之前的Siri" class="headerlink" title="iOS12之前的Siri"></a>iOS12之前的Siri</h5><ul>
@@ -625,8 +636,6 @@
 <p><img src="http://image.liangqili.com/SiriKit/Intents_ui_lifecycle.png" alt></p>
 <h4 id="文献："><a href="#文献：" class="headerlink" title="文献："></a>文献：</h4><p><a href="https://developer.apple.com/documentation/sirikit?language=objc" target="_blank" rel="noopener">官方文档</a><br><a href="http://www.codeceo.com/article/ios-10-sirikit-qq.html?open_source=weibo_search" target="_blank" rel="noopener">iOS 10 SiriKit QQ 适配详解</a><br><a href="https://www.jianshu.com/p/d0e157627f3a" target="_blank" rel="noopener">SiriKit预研</a></p>
 
-          
-        
       
     </div>
 
@@ -642,288 +651,74 @@
       
     
     
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/hexo/images/wechatpay.png" alt="Liangqili 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/hexo/images/alipay.png" alt="Liangqili 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.liangqili.com/hexo/hexo/2019/05/11/Hellow-World/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liangqili">
-      <meta itemprop="description" content="健身搬砖了解一下">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13734023?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lifeasy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/hexo/2019/05/11/Hellow-World/" class="post-title-link" itemprop="url">Hellow World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-11 22:29:12" itemprop="dateCreated datePublished" datetime="2019-05-11T22:29:12+08:00">2019-05-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-14 09:32:45" itemprop="dateModified" datetime="2019-05-14T09:32:45+08:00">2019-05-14</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/hexo/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/hexo/tags/SiriKit/" rel="tag"># SiriKit</a>
           
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/hexo/2019/05/11/Hellow-World/" class="leancloud_visitors" data-flag-title="Hellow World">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>倒腾了很久，终于把个人网站门面弄得七七八八了，第一篇文章记录下本站的降临。不会叙述的特别详细，因为大部分资料网上都有，大致写下流程，记录下踩得坑。</p>
-<h3 id="服务器购买"><a href="#服务器购买" class="headerlink" title="服务器购买"></a>服务器购买</h3><p>在阿里云买了一台服务器，用于个人站点的载体，镜像选择的是Ubuntu，期间有用过Windows Server，但是木有命令行操作的快感，所有又换了回来。镜像阿里云会自带的有，具体操作也有相关描述，没有什么难点，需要记住分配的公网IP地址，用于域名映射。</p>
-<h3 id="域名购买"><a href="#域名购买" class="headerlink" title="域名购买"></a>域名购买</h3><p>考虑到使用的方便，又花了几百大洋，在腾讯云购买了同名域名<a href="https://www.liangqili.com">www.liangqili.com</a>，个人账号需要实名认证，域名需要备案。这里有个操作需要注意，就是要将域名解析到服务器，这样才能通过域名访问到服务器。<br><img src="http://image.liangqili.com/Blog/www.png" alt="域名解析到服务器"><br>在域名管理里面，下载证书，用于后期搭建https服务。</p>
-<h3 id="SSL证书申请"><a href="#SSL证书申请" class="headerlink" title="SSL证书申请"></a>SSL证书申请</h3><p>后续准备使用https服务，需要申请SSL证书。腾讯云有免费证书可以申请，按照步骤申请，绑定已经申请的域名，并下载证书，留存后用。<br><img src="http://image.liangqili.com/Blog/ssl.png" alt="SSL证书申请"><br><img src="http://image.liangqili.com/Blog/download-ssl.png" alt="下载的证书">   </p>
-<h3 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h3><p>完成以上的前期工作，接下来就需要进行服务器搭建工作。</p>
-<h4 id="ssh链接服务器"><a href="#ssh链接服务器" class="headerlink" title="ssh链接服务器"></a>ssh链接服务器</h4><p>ssh链接Ubuntu进行搭建工作</p>
-<p><img src="http://image.liangqili.com/Blog/ssh.png" alt="ssh链接服务器"></p>
-<h4 id="安装transmit"><a href="#安装transmit" class="headerlink" title="安装transmit"></a>安装transmit</h4><p>因为需要和服务器传输相关文件，需要启用FTP客户端服务，本人使用的是Mac，所以推荐使用一款好用的FTP客户端图形操作软件：transmit，操作比较简单，网上有教程</p>
-<h4 id="服务器选型"><a href="#服务器选型" class="headerlink" title="服务器选型"></a>服务器选型</h4><p>Nginx、Apache2均可，我这里选择使用Apache2作为服务器  </p>
-<ul>
-<li>首先更新下Ubuntu系统软件  </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update          # 获取最新资源包    </span><br><span class="line">sudo apt-get upgrade         # 本机软件全部更新    </span><br><span class="line">sudo apt-get dist-upgrade    # 本机系统软件更新</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装LAMP万能服务端环境</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lamp-server^ #不要忘记^</span><br></pre></td></tr></table></figure>
-<p>等待安装完成，过程不难，如有问题，百度谷歌一下。<br>安装完成之后，需要进行Apache2服务器配置，比如设置网站根目录，开启PHP等等，网上有很多资料，配置比较容易。<br>附一份参考过的文章：<a href="https://www.cnblogs.com/starof/p/4278370.html" target="_blank" rel="noopener">ubuntu apache2服务器配置</a><br>完成以上配置，就可以在浏览器中输入<a href="https://www.liangqili.com">www.liangqili.com</a>进行访问了。</p>
-<h3 id="配置HTTPS服务"><a href="#配置HTTPS服务" class="headerlink" title="配置HTTPS服务"></a>配置HTTPS服务</h3><p>推荐使用https访问个人网站，否则Chrome浏览会显示不安全的标识，强迫症受不了。所以需要在服务端启用https，并将http请求重定向到https。  </p>
-<h4 id="安装证书，启用SSL"><a href="#安装证书，启用SSL" class="headerlink" title="安装证书，启用SSL"></a>安装证书，启用SSL</h4><p>相关参考：<a href="https://cloud.tencent.com/document/product/400/4143#ApacheCertificateOfDeployment" target="_blank" rel="noopener">证书安装指引</a>  </p>
-<ul>
-<li>在apache2目录下新建ssl目录，将下载的证书放入</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@iZ85qvl6le56fhZ:/etc/apache2/ssl# ls</span><br><span class="line">1_root_bundle.crt  2_www.liangqili.com.crt  3_www.liangqili.com.key</span><br></pre></td></tr></table></figure>
-<ul>
-<li>开启SSL</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#开启SSL模块</span><br><span class="line">a2enmod ssl </span><br><span class="line">#启用SSL站点</span><br><span class="line">a2ensite default-ssl</span><br></pre></td></tr></table></figure>
-<ul>
-<li>/etc/apache2/ports.conf 监听443端口</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># If you just change the port or add more ports here, you will likely also</span><br><span class="line"># have to change the VirtualHost statement in</span><br><span class="line"># /etc/apache2/sites-enabled/000-default.conf</span><br><span class="line"></span><br><span class="line">Listen 80</span><br><span class="line"></span><br><span class="line">&lt;IfModule ssl_module&gt;</span><br><span class="line">	Listen 443</span><br><span class="line">&lt;/IfModule&gt;</span><br><span class="line"></span><br><span class="line">&lt;IfModule mod_gnutls.c&gt;</span><br><span class="line">	Listen 443</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>配置SSL证书，根目录，在/etc/apache2/sites-enabled/default-ssl.conf</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ServerName www.liangqili.com</span><br><span class="line">DocumentRoot /var/www/html</span><br><span class="line"></span><br><span class="line">SSLEngine on</span><br><span class="line">SSLCertificateFile	/etc/apache2/ssl/2_www.liangqili.com.crt</span><br><span class="line">SSLCertificateKeyFile /etc/apache2/ssl/3_www.liangqili.com.key</span><br><span class="line">SSLCertificateChainFile /etc/apache2/ssl/1_root_bundle.crt</span><br></pre></td></tr></table></figure>
-<p>重启apache2即可使用https访问站点。</p>
-<h4 id="将http重定向到https，这里使用-htaccess文件"><a href="#将http重定向到https，这里使用-htaccess文件" class="headerlink" title="将http重定向到https，这里使用.htaccess文件"></a>将http重定向到https，这里使用.htaccess文件</h4><p>在站点根目录下添加.htaccess文件，编辑文件，输入以下内容，保存</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line">RewriteCond %&#123;SERVER_PORT&#125; 80</span><br><span class="line">RewriteRule ^(.*)$ https://www.liangqili.com/$1 [R,L]</span><br></pre></td></tr></table></figure>
-<p>重启apache2服务，用http访问站点，即可发现，自动切换为https</p>
-<p>至此，服务器已经搭建完毕，下面进行hexo博客搭建</p>
-<h3 id="Hexo博客搭建"><a href="#Hexo博客搭建" class="headerlink" title="Hexo博客搭建"></a>Hexo博客搭建</h3><p>参考文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官方文档</a><br>hexo依赖于nodejs和git，需要提前安装，安装完成后，使用npm安装hexo   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>hexo相关操作没有难度，说明文档里面都有，这里记录下遇到的问题。</p>
-<h4 id="Error-EACCES-permission-denied"><a href="#Error-EACCES-permission-denied" class="headerlink" title="Error: EACCES: permission denied"></a>Error: EACCES: permission denied</h4><p>npm安装hexo报错<code>Error: EACCES: permission denied</code>，即使加上<code>sudo</code>也无效，nodejs官方文档找到以下解决方法，尝试有效：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.npm-global</span><br><span class="line">npm config set prefix &apos;~/.npm-global&apos;</span><br><span class="line">export PATH=~/.npm-global/bin:$PATH</span><br><span class="line">source ~/.profile</span><br></pre></td></tr></table></figure>
-<p>参考文档：<a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank" rel="noopener">官方文档解决方案链接地址</a></p>
-<h4 id="npm换源"><a href="#npm换源" class="headerlink" title="npm换源"></a>npm换源</h4><p>遇到npm很慢的情况，考虑将npm源换到taobao镜像。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<p>切换回原始镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
-<p>查看npm源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-<p>参考文档：<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝npm镜像</a></p>
-<h4 id="ssh配置公私钥快速链接"><a href="#ssh配置公私钥快速链接" class="headerlink" title="ssh配置公私钥快速链接"></a>ssh配置公私钥快速链接</h4><p>经常使用ssh 链接服务器或者使用git push代码，需要输入密码很麻烦，可以为ssh添加公私钥免登陆密码，避免提交git时候输入密码。网上有很多教程，操作比较简单。<br>参考链接：<a href="https://www.cnblogs.com/chuyanfenfei/p/8035067.html" target="_blank" rel="noopener">github添加ssh</a></p>
-<h3 id="hexo部署到自己的服务器"><a href="#hexo部署到自己的服务器" class="headerlink" title="hexo部署到自己的服务器"></a>hexo部署到自己的服务器</h3><p>很多人将自己的hexo博客主页部署到github，不过有了自己的服务器，就决定将博客部署到github和自己的云服务器<br>参考文档：<a href="https://www.jianshu.com/p/271a1649a853" target="_blank" rel="noopener">在 Ubuntu 服务器部署 hexo 搭建个人博客</a>   </p>
-<ol>
-<li>本地 hexo 博客配置一个部署静态文件的远程仓库  </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /var/repo/</span><br><span class="line">sudo mkdir /var/repo/</span><br><span class="line">sudo chown -R $USER:$USER /var/repo/</span><br><span class="line">sudo chmod -R 755 /var/repo/</span><br><span class="line">cd /var/repo</span><br><span class="line">git init --bare hexoBlog.git</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>apache2网站根目录下创建一个hexo，用于部署博客(网上很多教程将hexo部署为个人网站的主页，我这里只是作为了一个二级界面)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/html/hexo</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>创建 Git 钩子，将hexo远程仓库的文件，同步一份到apache2</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /var/repo/hexoBlog.git/hooks/post-receive</span><br><span class="line">git --work-tree=/var/www/html/hexo --git-dir=/var/repo/hexoBlog.git checkout -f</span><br><span class="line">chmod +x /var/repo/hexoBlog.git/hooks/post-receive #添加可执行权限</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>修改hexo配置文件，将博客deploy到云服务器（同时也可以将博客deploy到github）</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">  repo: git@github.com:lifeasy/lifeasy.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">- type: git</span><br><span class="line">  repo: root@47.106.123.122:/var/repo/hexoBlog</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果配置了ssh key，就不用输入密码，如果没有，则需要输入密码  </li>
-<li>另外需要注意的是博客的根目录问题，因为的我的网站的hexo在二级目录，所以需要重新修改配置文件，否则网页会因为资源文件的问题显示不正确。<br>这里我用了两份配置，一份用于上传github，一份用于上传个人服务器，配合上面的deploy使用。目前这种操作还输入手动方式，后续看看是否有其他更加自动化的方式。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://www.liangqili.com/hexo</span><br><span class="line">root: /hexo/</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line">#上传到git.io 根目录不同，需要单独配置</span><br><span class="line"># url: https://lifeasy.github.io</span><br><span class="line"># root: /</span><br><span class="line"># permalink: :year/:month/:day/:title/</span><br><span class="line"># permalink_defaults:</span><br></pre></td></tr></table></figure>
-<h3 id="多地同步编辑hexo博客"><a href="#多地同步编辑hexo博客" class="headerlink" title="多地同步编辑hexo博客"></a>多地同步编辑hexo博客</h3><p>因为不可能在一台机器上书写博客，所以考虑将博客同步到github，然后另一台机器也可以clone下来，进行编辑。<br>操作比较简单，这里简单概述下：  </p>
-<ul>
-<li>github创建一个仓库用于存储hexo文档（非github.io）</li>
-<li>clone到本地，将hexo文件夹拖到此仓库，在hexo中新建.gitignore文件，过滤掉无关文件（可生成文件），原理同Xcode项目只上传Podfile和Podfile.lock文件类似，不过在另一端同步到文件后，需要重新执行<code>hexo clean`</code>hexo g`，这里需要注意的是theme，因为这也是一个git，为了避免冲突，需要将theme下的.git删除</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store #mac系统文件 无视</span><br><span class="line">Thumbs.db #mac系统文件 无视</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure>
-<h3 id="hexo博客书写"><a href="#hexo博客书写" class="headerlink" title="hexo博客书写"></a>hexo博客书写</h3><p>参考文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官方文档</a><br>包含hexo的常规操作，生成tags、categorie、404等等，相关操作查看hexo官方文档。注意因为有些参考文档中的404仍然使用的是http链接，导致部署到我的网站时（https），会有无法加载http资源问题，这里使用了另一个404书写方式，测试没有问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404 Not Found：该页无法显示</span><br><span class="line">toc: false</span><br><span class="line">comments: false</span><br><span class="line">---</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">         &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">         &lt;title&gt;404&lt;/title&gt;                                                                                                                                        </span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    	&lt;script type=&quot;text/javascript&quot; src=&quot;//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js&quot; charset=&quot;utf-8&quot; homePageName=&quot;返回首页&quot; homePageUrl=&quot;../&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h3><p>参考文档：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT官方文档</a><br>主题包含页面的一些配置，插件的使用，我这里主要配置了评论、次数统计、打赏等等，这些都在NexT的参考文档中可以找到，没有什么难度，自行查看。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo/2019/05/11/Hellow-World/" rel="next" title="Hellow World">
+                <i class="fa fa-chevron-left"></i> Hellow World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -933,14 +728,20 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDE3OS8yMDcxMg"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -960,8 +761,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1073,6 +883,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit"><span class="nav-number">1.</span> <span class="nav-text">SiriKit</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可以做什么？"><span class="nav-number">1.1.</span> <span class="nav-text">可以做什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS12之前的Siri"><span class="nav-number">1.2.</span> <span class="nav-text">iOS12之前的Siri</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS12后的Siri"><span class="nav-number">1.3.</span> <span class="nav-text">iOS12后的Siri</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit简介"><span class="nav-number">2.</span> <span class="nav-text">SiriKit简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit集成"><span class="nav-number">3.</span> <span class="nav-text">SiriKit集成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit处理流程"><span class="nav-number">4.</span> <span class="nav-text">SiriKit处理流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intent-UI"><span class="nav-number">5.</span> <span class="nav-text">Intent UI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文献："><span class="nav-number">6.</span> <span class="nav-text">文献：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1208,6 +1035,10 @@
 
 
   
+  <script src="/hexo/js/scrollspy.js?v=7.1.0"></script>
+<script src="/hexo/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -1224,6 +1055,23 @@
   
 
 
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/05/31/SiriKit个人使用总结/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
 
   
 
@@ -1234,38 +1082,35 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
           }
         })
         .fail(function ({ responseJSON }) {
@@ -1290,9 +1135,7 @@
             });
           };
           
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
+            addCount(Counter);
           
         });
     });
