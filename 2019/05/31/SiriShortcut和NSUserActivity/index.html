@@ -129,7 +129,7 @@
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/addBtnExist.jpeg">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/addView.jpeg">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/editView.jpeg">
-<meta property="og:updated_time" content="2019-05-31T06:02:46.987Z">
+<meta property="og:updated_time" content="2019-05-31T07:25:18.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SiriShortcut和NSUserActivity">
 <meta name="twitter:description" content="Siri Shortcut &amp;amp;&amp;amp; NSUserActivity可以做什么 通过Siri，说出预先自定义的语音，进入到app，完成相关动作   iOS12 之后，NSUserActivity可以用于SiriKit ShortCuts，通过自定义语音唤起App完成相关动作用户必须进入过相关界面，并且添加自定义语音到SiriDemo ：feature/SiriShortcut 借条可用，">
@@ -325,11 +325,40 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -421,7 +450,7 @@
                 
               
 
-              <time title="创建时间：2019-05-31 14:01:46 / 修改时间：14:02:46" itemprop="dateCreated datePublished" datetime="2019-05-31T14:01:46+08:00">2019-05-31</time>
+              <time title="创建时间：2019-05-31 14:01:46 / 修改时间：15:25:18" itemprop="dateCreated datePublished" datetime="2019-05-31T14:01:46+08:00">2019-05-31</time>
             
 
             
@@ -495,16 +524,16 @@
 <blockquote>
 <p>iOS12 之后，NSUserActivity可以用于SiriKit ShortCuts，通过自定义语音唤起App完成相关动作<br>用户必须进入过相关界面，并且添加自定义语音到Siri<br><a href="https://v.src.corp.qihoo.net/360jr-fe/qihooloan-ios/tree/feature/SiriShortcut" target="_blank" rel="noopener">Demo ：feature/SiriShortcut</a> 借条可用，快速进入CheckSystemInfo界面</p>
 </blockquote>
-<p><img src="http://image.liangqili.com/SiriKit/sirishortcut.gif" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/sirishortcut.gif" width="50%" height="50%"> </p>
 <h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><ul>
 <li>iOS 12之后</li>
 </ul>
-<h5 id="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"><a href="#添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes" class="headerlink" title="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"></a>添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes</h5><p><img src="http://image.liangqili.com/SiriKit/useractivitytype.png" alt></p>
+<h5 id="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"><a href="#添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes" class="headerlink" title="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"></a>添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes</h5><p><img src="http://image.liangqili.com/SiriKit/useractivitytype.png" width="50%" height="50%"> </p>
 <h5 id="添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"><a href="#添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍" class="headerlink" title="添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"></a>添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//添加按钮</span><br><span class="line">- (void)addVoiceShortcutButton &#123;</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        //此按钮可以自行判断shortcut中的userActivity是否已经添加过，从而显示不同的样式</span><br><span class="line">        INUIAddVoiceShortcutButton *voiceBtn = [[INUIAddVoiceShortcutButton alloc] initWithStyle:INUIAddVoiceShortcutButtonStyleWhiteOutline];</span><br><span class="line">        voiceBtn.shortcut = [[INShortcut alloc] initWithUserActivity:[self createRelevantUserActivity]];</span><br><span class="line">        //按钮点击事件的代理</span><br><span class="line">        voiceBtn.delegate = self;</span><br><span class="line">        voiceBtn.translatesAutoresizingMaskIntoConstraints = NO;</span><br><span class="line">        //按钮需要约束布局，测试设置frame无效</span><br><span class="line">        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UXY_SCREEN_WIDTH, 400)];</span><br><span class="line">        [bottomView addSubview:voiceBtn];</span><br><span class="line">        [[bottomView.centerXAnchor constraintEqualToAnchor:voiceBtn.centerXAnchor] setActive:YES];</span><br><span class="line">        [[bottomView.centerYAnchor constraintEqualToAnchor:voiceBtn.centerYAnchor] setActive:YES];</span><br><span class="line">        self.tableView.tableFooterView = bottomView;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//创建相关userActivity</span><br><span class="line">- (NSUserActivity *)createRelevantUserActivity &#123;</span><br><span class="line">    NSUserActivity *activity = [[NSUserActivity alloc] initWithActivityType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];</span><br><span class="line">    //显示在siri 建议或者core spotlight 中的标题</span><br><span class="line">    activity.title = @&quot;版本信息&quot;;</span><br><span class="line">    //core spotlight关键词，和siri无关</span><br><span class="line">    activity.keywords = [NSSet setWithArray:@[@&quot;版本信息&quot;,@&quot;查看版本&quot;]];</span><br><span class="line">    //携带的用户信息</span><br><span class="line">    activity.userInfo = @&#123;@&quot;qihoo&quot;:@&quot;checksysteminfo&quot;&#125;;</span><br><span class="line">    //开启用于检索</span><br><span class="line">    activity.eligibleForSearch = YES;</span><br><span class="line">    //ios12 sirikit</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        //开启sirikit</span><br><span class="line">        activity.eligibleForPrediction = YES;</span><br><span class="line">        //建议语句，会显示在添加Siri捷径的界面中</span><br><span class="line">        activity.suggestedInvocationPhrase = @&quot;查看版本&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    //其他相关显示信息，不了解可以查看core spotlight一文</span><br><span class="line">    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];</span><br><span class="line">    set.contentDescription = @&quot;检查应用的版本信息&quot;;</span><br><span class="line">    activity.contentAttributeSet = set;</span><br><span class="line">    //启用core spotlight，不使用的话可以删掉</span><br><span class="line">    self.userActivity = activity;</span><br><span class="line">    return activity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="按钮添加前后样式如下，需要实现代理完成不同的跳转"><a href="#按钮添加前后样式如下，需要实现代理完成不同的跳转" class="headerlink" title="按钮添加前后样式如下，需要实现代理完成不同的跳转"></a>按钮添加前后样式如下，需要实现代理完成不同的跳转</h5><p>userActivity未加入到Siri的状态</p>
-<p><img src="http://image.liangqili.com/SiriKit/addBtnOriginal.jpeg" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/addBtnOriginal.jpeg" width="50%" height="50%"> </p>
 <p>userActivity已经加入到Siri的状态</p>
-<p><img src="http://image.liangqili.com/SiriKit/addBtnExist.jpeg" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/addBtnExist.jpeg" width="50%" height="50%"> </p>
 <p>实现INUIAddVoiceShortcutButtonDelegate代理</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIAddVoiceShortcutButtonDelegate</span><br><span class="line">//新添加</span><br><span class="line">- (void)presentAddVoiceShortcutViewController:(INUIAddVoiceShortcutViewController *)addVoiceShortcutViewController forAddVoiceShortcutButton:(INUIAddVoiceShortcutButton *)addVoiceShortcutButton  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    //新添加界面的代理</span><br><span class="line">    addVoiceShortcutViewController.delegate = self;</span><br><span class="line">    [self presentViewController:addVoiceShortcutViewController animated:YES completion:nil];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">//添加过，去编辑</span><br><span class="line">- (void)presentEditVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)editVoiceShortcutViewController forAddVoiceShortcutButton:(INUIAddVoiceShortcutButton *)addVoiceShortcutButton  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    //编辑界面的代理</span><br><span class="line">    editVoiceShortcutViewController.delegate = self;</span><br><span class="line">    [self presentViewController:editVoiceShortcutViewController animated:YES completion:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>跳转不同的界面也有不同的代理</p>
@@ -512,12 +541,12 @@
 <li>新添加界面的代理INUIAddVoiceShortcutViewControllerDelegate</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIAddVoiceShortcutViewControllerDelegate</span><br><span class="line"></span><br><span class="line">- (void)addVoiceShortcutViewController:(INUIAddVoiceShortcutViewController *)controller didFinishWithVoiceShortcut:(nullable INVoiceShortcut *)voiceShortcut error:(nullable NSError *)error  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    if (!error) &#123;</span><br><span class="line">        NSLog(@&quot;%@, %@&quot;, voiceShortcut.invocationPhrase, voiceShortcut.identifier);</span><br><span class="line">        [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">            NSLog(@&quot;添加成功&quot;);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;, error.localizedDescription);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)addVoiceShortcutViewControllerDidCancel:(INUIAddVoiceShortcutViewController *)controller  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;取消添加&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://image.liangqili.com/SiriKit/addView.jpeg" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/addView.jpeg" width="50%" height="50%"> </p>
 <ul>
 <li>已添加，编辑界面代理</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIEditVoiceShortcutViewControllerDelegate</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)controller didUpdateVoiceShortcut:(nullable INVoiceShortcut *)voiceShortcut error:(nullable NSError *)error  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    if (!error) &#123;</span><br><span class="line">        NSLog(@&quot;%@, %@&quot;, voiceShortcut.invocationPhrase, voiceShortcut.identifier);</span><br><span class="line">        [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">            NSLog(@&quot;修改成功&quot;);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;, error.localizedDescription);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)controller didDeleteVoiceShortcutWithIdentifier:(NSUUID *)deletedVoiceShortcutIdentifier  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;删除指令&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewControllerDidCancel:(INUIEditVoiceShortcutViewController *)controller  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;取消添加&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://image.liangqili.com/SiriKit/editView.jpeg" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/editView.jpeg" width="50%" height="50%"> </p>
 <h5 id="AppDelegate中处理跳转信息"><a href="#AppDelegate中处理跳转信息" class="headerlink" title="AppDelegate中处理跳转信息"></a>AppDelegate中处理跳转信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler&#123;</span><br><span class="line">    </span><br><span class="line">    //Siri Shortcut相关</span><br><span class="line">    if ([userActivity.activityType isEqualToString:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;]) &#123;</span><br><span class="line">        NSString *resourceBundle = [[NSBundle mainBundle] pathForResource:@&quot;qihooloan_res&quot; ofType:@&quot;bundle&quot;];</span><br><span class="line">        UIStoryboard *board = [UIStoryboard storyboardWithName:@&quot;MainSDK&quot; bundle:[NSBundle bundleWithPath:resourceBundle]];</span><br><span class="line">        UIViewController *vc = [board instantiateViewControllerWithIdentifier:@&quot;CheckSystemInfoViewController&quot;];</span><br><span class="line">        [[UIWindow uxy_optimizedVisibleViewController].navigationController pushViewController:vc animated:YES];</span><br><span class="line">    &#125;</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="自定义Siri按钮及跳转"><a href="#自定义Siri按钮及跳转" class="headerlink" title="自定义Siri按钮及跳转"></a>自定义Siri按钮及跳转</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//判断 可以自定义添加到Siri按钮</span><br><span class="line">- (void)isVoiceShortcutExist &#123;</span><br><span class="line">    //回调再子线程，如操作UI需要回到主线程</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        [[INVoiceShortcutCenter sharedCenter] getAllVoiceShortcutsWithCompletion:^(NSArray&lt;INVoiceShortcut *&gt; * _Nullable voiceShortcuts, NSError * _Nullable error) &#123;</span><br><span class="line">            if (!error) &#123;</span><br><span class="line">                for (INVoiceShortcut *shortcut in voiceShortcuts) &#123;</span><br><span class="line">                    //存在</span><br><span class="line">                    if ([shortcut.shortcut.userActivity.activityType isEqualToString:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;]) &#123;</span><br><span class="line">                        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                            //添加一个按钮，可以点击跳转INUIEditVoiceShortcutViewController，INUIEditVoiceShortcutViewController需要自己生成</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        //不存在</span><br><span class="line">                        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                            //添加一个按钮，可以点击跳转INUIAddVoiceShortcutViewController，INUIAddVoiceShortcutViewController需要自己生成</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -967,6 +996,326 @@
 
 
   
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/hexo/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 

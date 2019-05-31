@@ -115,13 +115,13 @@
 
 
 
-  <meta name="description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。    如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关信">
+  <meta name="description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。     如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关">
 <meta name="keywords" content="siriKit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SiriKit个人使用总结">
 <meta property="og:url" content="https://www.liangqili.com/hexo/2019/05/31/SiriKit个人使用总结/index.html">
 <meta property="og:site_name" content="Lifeasy">
-<meta property="og:description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。    如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关信">
+<meta property="og:description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。     如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/wxsuccess.jpeg">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/wxfailure.jpeg">
@@ -137,10 +137,10 @@
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_lifecycle.png">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_lifecycle_2.jpg">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_ui_lifecycle.png">
-<meta property="og:updated_time" content="2019-05-31T05:59:28.660Z">
+<meta property="og:updated_time" content="2019-05-31T07:22:28.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SiriKit个人使用总结">
-<meta name="twitter:description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。    如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关信">
+<meta name="twitter:description" content="SiriKit可以做什么？ SiriKit在iOS10之后开放给开发者，在iOS12有进行了一次功能提升  iOS12之前的Siri 使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。     如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关">
 <meta name="twitter:image" content="http://image.liangqili.com/SiriKit/wxsuccess.jpeg">
 
 
@@ -333,11 +333,40 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -429,7 +458,7 @@
                 
               
 
-              <time title="创建时间：2019-05-31 13:47:35 / 修改时间：13:59:28" itemprop="dateCreated datePublished" datetime="2019-05-31T13:47:35+08:00">2019-05-31</time>
+              <time title="创建时间：2019-05-31 13:47:35 / 修改时间：15:22:28" itemprop="dateCreated datePublished" datetime="2019-05-31T13:47:35+08:00">2019-05-31</time>
             
 
             
@@ -503,11 +532,11 @@
 <h5 id="iOS12之前的Siri"><a href="#iOS12之前的Siri" class="headerlink" title="iOS12之前的Siri"></a>iOS12之前的Siri</h5><ul>
 <li>使用Siri说出相关希望App完成的动作，例如：“微信发送信息你好给小柔”，则Siri会调用微信的SiriExtension完成相关操作。</li>
 </ul>
-<p><img src="http://image.liangqili.com/SiriKit/wxsuccess.jpeg" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/wxsuccess.jpeg" width="50%" height="50%"> </p>
 <ul>
 <li>如果SiriExtension无法完成，Siri会提示用户打开应用完成相关动作。（这一步需要用户手动点击，可以携带相关信息进入，有App继续完成）</li>
 </ul>
-<p><img src="http://image.liangqili.com/SiriKit/wxfailure.jpeg" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/wxfailure.jpeg" width="50%" height="50%"> </p>
 <ul>
 <li>想要调起App的SiriExtension，用户的语音指令必须为SiriKit定义的domain中的一种，且开发者必须实现相应domain处理，否则Siri无法根据开发者定义的功能完成上述两种操作。后续操作完全由Siri去解析执行，和App无关。domain定义了SiriKit支持处理的事件范围：<ul>
 <li>语音视频通话</li>
@@ -526,16 +555,16 @@
 <h5 id="iOS12后的Siri"><a href="#iOS12后的Siri" class="headerlink" title="iOS12后的Siri"></a>iOS12后的Siri</h5><ul>
 <li>iOS12后，Siri提供了自定义语音意图功能，不再受限于之前的domain。用户通过这个自定义功能添加语音到Siri完成相关功能。</li>
 </ul>
-<p><img src="http://image.liangqili.com/SiriKit/pageadd.png" alt></p>
-<p><img src="http://image.liangqili.com/SiriKit/add.png" alt></p>
-<p><img src="http://image.liangqili.com/SiriKit/order.png" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/pageadd.png" width="50%" height="50%"> </p>
+<p><img src="http://image.liangqili.com/SiriKit/add.png" width="50%" height="50%"> </p>
+<p><img src="http://image.liangqili.com/SiriKit/order.png" width="50%" height="50%"> </p>
 <h4 id="SiriKit简介"><a href="#SiriKit简介" class="headerlink" title="SiriKit简介"></a>SiriKit简介</h4><ul>
 <li>iOS 10.0+</li>
 <li>macOS 10.12+</li>
 <li>watchOS 3.2+  </li>
 </ul>
 <p>iOS 10之后，Apple开放了SiriKit框架，用于通过Siri更加方便用户操作App相关功能。 </p>
-<p><img src="https://docs-assets.developer.apple.com/published/63ea07d81b/16f9b205-2c79-4bea-b89a-2ef26bc71ef1.png" alt="Siri工作流">   </p>
+<p><img alt="Siri工作流" src="https://docs-assets.developer.apple.com/published/63ea07d81b/16f9b205-2c79-4bea-b89a-2ef26bc71ef1.png" width="50%" height="50%">  </p>
 <p>用户向Siri发送语音指令，Siri将此指令解析为Intent对象，发送给相关联的App Extentsion。Extension根据Intent执行相关操作，完成用户指令。相关操作可以通过Intent UI Extentsion展示在Siri中。   </p>
 <ul>
 <li>所有语音解析由Siri完成，Siri将解析后的用户指令封装为Intent对象发送给相应的App Extension程序。</li>
@@ -602,38 +631,38 @@
 <li>然后将结构化语音分析结果打包成一个某个域（Domain）的意图(Intent)；</li>
 <li>接着交给支持这个意图（Intent）的第三方App Extension，App Extension启动，从传入的Intent中获取相应的信息，完成操作。  </li>
 </ul>
-<p><img src="http://image.liangqili.com/SiriKit/SiriKit%E7%A4%BA%E4%BE%8B%E5%9B%BE.png" alt="示例"></p>
+<p><img src="http://image.liangqili.com/SiriKit/SiriKit%E7%A4%BA%E4%BE%8B%E5%9B%BE.png" width="50%" height="50%"> </p>
 <h4 id="SiriKit集成"><a href="#SiriKit集成" class="headerlink" title="SiriKit集成"></a>SiriKit集成</h4><ol>
 <li>开启Siri Capabilities。必须要有付费开发者账号，未付费开发者无此选项。</li>
 </ol>
-<p><img src="http://image.liangqili.com/SiriKit/%E6%B7%BB%E5%8A%A0Siri_Capabilities.png" alt>  </p>
+<p><img src="http://image.liangqili.com/SiriKit/%E6%B7%BB%E5%8A%A0Siri_Capabilities.png" width="50%" height="50%">  </p>
 <ol start="2">
 <li><p>请求Siri权限。</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	//请求Siri权限</span><br><span class="line">- (void)requestingAuthorizationToUseSiriKit &#123;</span><br><span class="line">    [INPreferences requestSiriAuthorization:^(INSiriAuthorizationStatus status) &#123;</span><br><span class="line">        if (status == INSiriAuthorizationStatusAuthorized) &#123;</span><br><span class="line">            </span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>![Siri权限描述](http://image.liangqili.com/SiriKit/Siri_description.png)
+<pre><code>&lt;img alt=&quot;Siri权限描述&quot; src=&quot;http://image.liangqili.com/SiriKit/Siri_description.png&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt; 
 </code></pre><ol start="3">
 <li><p>添加Extension，添加Intents Extension，Xcode会附带提示是否添加Intents UI Extentsion（可选）。</p>
-<p> <img src="http://image.liangqili.com/SiriKit/Intents_Extension.png" alt>  </p>
-<p> <img src="http://image.liangqili.com/SiriKit/Intents_target.png" alt></p>
+<p> <img src="http://image.liangqili.com/SiriKit/Intents_Extension.png" width="50%" height="50%">   </p>
+<p> <img src="http://image.liangqili.com/SiriKit/Intents_target.png" width="50%" height="50%"> </p>
 </li>
 <li><p>配置对应Target的info.plist。plist文件中包含一个NSExtension字段，里面包含对应的配置;  </p>
 <p> |key|value|<br> |—|—–|<br> |NSExtensionPointIdentifier|com.apple.intents-service（固定值）|<br> |NSExtensionPrincipalClass|入口文件，首先相应Siri请求的文件|<br> |NSExtensionAttributes|包含两个值：IntentsRestrictedWhileLocked锁屏状态下禁止的域；IntentsSupported支持的域；域为上面介绍的11种类型中的一个或多个|  </p>
-<p> <img src="http://image.liangqili.com/SiriKit/Intents_plist.png" alt></p>
+<p> <img src="http://image.liangqili.com/SiriKit/Intents_plist.png" width="50%" height="50%"> </p>
 </li>
 </ol>
 <h4 id="SiriKit处理流程"><a href="#SiriKit处理流程" class="headerlink" title="SiriKit处理流程"></a>SiriKit处理流程</h4><p>Siri解析出相关信息封装为Intent类型，通过plist中配置的入口文件找到相关类的<code>- (id)handlerForIntent:(INIntent *)intent</code>方法，询问具体处理事件的类</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 这里是SiriExtension的入口，判断意图类型</span><br><span class="line">- (id)handlerForIntent:(INIntent *)intent &#123;</span><br><span class="line">    // 如果是INSendMessageIntent，使用自定义的SendMessageIntentHandler处理</span><br><span class="line">    if ([intent isKindOfClass:[INSendMessageIntent class]]) &#123;</span><br><span class="line">        SendMessageIntentHandler *SendMsgHandler = [[SendMessageIntentHandler alloc] init];</span><br><span class="line">        return SendMsgHandler;</span><br><span class="line">    // 如果是INSendPaymentIntent，使用自定义的SendPaymentIntentHandler处理</span><br><span class="line">    &#125;else if ([intent isKindOfClass:[INSendPaymentIntent class]]) &#123;</span><br><span class="line">        SendPaymentIntentHandler *SendPayHandler = [[SendPaymentIntentHandler alloc] init];</span><br><span class="line">        return SendPayHandler;</span><br><span class="line">    //其他的自己处理</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        return self;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>找到相应的处理类之后，进入事件处理流程，以INSendMessageIntent为例。</p>
-<p><img src="http://image.liangqili.com/SiriKit/Intents_lifecycle.png" alt></p>
-<p><img src="http://image.liangqili.com/SiriKit/Intents_lifecycle_2.jpg" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/Intents_lifecycle.png" width="50%" height="50%"> </p>
+<p><img src="http://image.liangqili.com/SiriKit/Intents_lifecycle_2.jpg" width="50%" height="50%"> </p>
 <p>相关处理方法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//确认消息发送对象</span><br><span class="line">- (void)resolveRecipientsForSendMessage:(INSendMessageIntent *)intent withCompletion:(void (^)(NSArray&lt;INPersonResolutionResult *&gt; *resolutionResults))completion &#123;</span><br><span class="line">&#125;</span><br><span class="line">// 确认消息发送内容</span><br><span class="line">- (void)resolveContentForSendMessage:(INSendMessageIntent *)intent withCompletion:(void (^)(INStringResolutionResult *resolutionResult))completion &#123;</span><br><span class="line">&#125; </span><br><span class="line">//确认是否可以发送（例如权限鉴定）</span><br><span class="line">- (void)confirmSendMessage:(INSendMessageIntent *)intent completion:(void (^)(INSendMessageIntentResponse *response))completion &#123;</span><br><span class="line">&#125; </span><br><span class="line">// 处理方法，处理发送信息逻辑</span><br><span class="line">- (void)handleSendMessage:(INSendMessageIntent *)intent completion:(void (^)(INSendMessageIntentResponse *response))completion &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Intent-UI"><a href="#Intent-UI" class="headerlink" title="Intent UI"></a>Intent UI</h4><p>对于支持自定义界面的 Intent 类型，可以在 Intents UI Extension 中提供更美观的自定义界面。 Custom UI 的实现相对较简单，和 iOS App 的开发一样，都是通过 UIViewController 的子类实现。我们需要在 Intents UI Extension 的 info.plist 文件中设置 initial viewcontroller 或者设置 main storyboard，对于不同类型的 Intent 的界面展示，通过 Child Viewcontrollers 的方式实现差异化界面展示。</p>
 <p>当接收到来自 Intents Extension 的 response 时，系统会唤起 Intents UI Extension 并加载 initial viewcontroller，通过INUIHostedViewSiriProviding协议的configureWithInteraction:context:completion:方法可以获取 intent，比如在发消息功能中，在消息确认发送和发送成功后都会回调一次这个方法。根据 Intent 对象的类型和状态，在收到相关 Intent 的回调时 present 对应的 Child Viewcontroller 即可实现定制化的界面展示。</p>
 <p>这里需要注意的是，Intents UI Extension 的进程并不会在界面销毁后就退出，很可能只是在后台处于休眠状态，下次 response 到来时再被唤醒。</p>
-<p><img src="http://image.liangqili.com/SiriKit/Intents_ui_lifecycle.png" alt></p>
+<p><img src="http://image.liangqili.com/SiriKit/Intents_ui_lifecycle.png" width="50%" height="50%"> </p>
 <h4 id="文献："><a href="#文献：" class="headerlink" title="文献："></a>文献：</h4><p><a href="https://developer.apple.com/documentation/sirikit?language=objc" target="_blank" rel="noopener">官方文档</a><br><a href="http://www.codeceo.com/article/ios-10-sirikit-qq.html?open_source=weibo_search" target="_blank" rel="noopener">iOS 10 SiriKit QQ 适配详解</a><br><a href="https://www.jianshu.com/p/d0e157627f3a" target="_blank" rel="noopener">SiriKit预研</a></p>
 
       
@@ -1084,6 +1113,326 @@
 
 
   
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/hexo/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
