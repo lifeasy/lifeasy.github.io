@@ -371,6 +371,583 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.liangqili.com/hexo/hexo/2019/05/31/SiriShortcut和NSUserActivity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liangqili">
+      <meta itemprop="description" content="健身搬砖了解一下">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13734023?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lifeasy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/hexo/2019/05/31/SiriShortcut和NSUserActivity/" class="post-title-link" itemprop="url">SiriShortcut和NSUserActivity</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-31 14:01:46 / 修改时间：14:02:46" itemprop="dateCreated datePublished" datetime="2019-05-31T14:01:46+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/hexo/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/hexo/2019/05/31/SiriShortcut和NSUserActivity/" class="leancloud_visitors" data-flag-title="SiriShortcut和NSUserActivity">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Siri-Shortcut-amp-amp-NSUserActivity"><a href="#Siri-Shortcut-amp-amp-NSUserActivity" class="headerlink" title="Siri Shortcut &amp;&amp; NSUserActivity"></a>Siri Shortcut &amp;&amp; NSUserActivity</h4><h5 id="可以做什么"><a href="#可以做什么" class="headerlink" title="可以做什么"></a>可以做什么</h5><ul>
+<li>通过Siri，说出预先自定义的语音，进入到app，完成相关动作</li>
+</ul>
+<blockquote>
+<p>iOS12 之后，NSUserActivity可以用于SiriKit ShortCuts，通过自定义语音唤起App完成相关动作<br>用户必须进入过相关界面，并且添加自定义语音到Siri<br><a href="https://v.src.corp.qihoo.net/360jr-fe/qihooloan-ios/tree/feature/SiriShortcut" target="_blank" rel="noopener">Demo ：feature/SiriShortcut</a> 借条可用，快速进入CheckSystemInfo界面</p>
+</blockquote>
+<p><img src="http://image.liangqili.com/SiriKit/sirishortcut.gif" alt></p>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><ul>
+<li>iOS 12之后</li>
+</ul>
+<h5 id="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"><a href="#添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes" class="headerlink" title="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"></a>添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes</h5><p><img src="http://image.liangqili.com/SiriKit/useractivitytype.png" alt></p>
+<h5 id="添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"><a href="#添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍" class="headerlink" title="添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"></a>添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//添加按钮</span><br><span class="line">- (void)addVoiceShortcutButton &#123;</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        //此按钮可以自行判断shortcut中的userActivity是否已经添加过，从而显示不同的样式</span><br><span class="line">        INUIAddVoiceShortcutButton *voiceBtn = [[INUIAddVoiceShortcutButton alloc] initWithStyle:INUIAddVoiceShortcutButtonStyleWhiteOutline];</span><br><span class="line">        voiceBtn.shortcut = [[INShortcut alloc] initWithUserActivity:[self createRelevantUserActivity]];</span><br><span class="line">        //按钮点击事件的代理</span><br><span class="line">        voiceBtn.delegate = self;</span><br><span class="line">        voiceBtn.translatesAutoresizingMaskIntoConstraints = NO;</span><br><span class="line">        //按钮需要约束布局，测试设置frame无效</span><br><span class="line">        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UXY_SCREEN_WIDTH, 400)];</span><br><span class="line">        [bottomView addSubview:voiceBtn];</span><br><span class="line">        [[bottomView.centerXAnchor constraintEqualToAnchor:voiceBtn.centerXAnchor] setActive:YES];</span><br><span class="line">        [[bottomView.centerYAnchor constraintEqualToAnchor:voiceBtn.centerYAnchor] setActive:YES];</span><br><span class="line">        self.tableView.tableFooterView = bottomView;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//创建相关userActivity</span><br><span class="line">- (NSUserActivity *)createRelevantUserActivity &#123;</span><br><span class="line">    NSUserActivity *activity = [[NSUserActivity alloc] initWithActivityType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];</span><br><span class="line">    //显示在siri 建议或者core spotlight 中的标题</span><br><span class="line">    activity.title = @&quot;版本信息&quot;;</span><br><span class="line">    //core spotlight关键词，和siri无关</span><br><span class="line">    activity.keywords = [NSSet setWithArray:@[@&quot;版本信息&quot;,@&quot;查看版本&quot;]];</span><br><span class="line">    //携带的用户信息</span><br><span class="line">    activity.userInfo = @&#123;@&quot;qihoo&quot;:@&quot;checksysteminfo&quot;&#125;;</span><br><span class="line">    //开启用于检索</span><br><span class="line">    activity.eligibleForSearch = YES;</span><br><span class="line">    //ios12 sirikit</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        //开启sirikit</span><br><span class="line">        activity.eligibleForPrediction = YES;</span><br><span class="line">        //建议语句，会显示在添加Siri捷径的界面中</span><br><span class="line">        activity.suggestedInvocationPhrase = @&quot;查看版本&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    //其他相关显示信息，不了解可以查看core spotlight一文</span><br><span class="line">    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];</span><br><span class="line">    set.contentDescription = @&quot;检查应用的版本信息&quot;;</span><br><span class="line">    activity.contentAttributeSet = set;</span><br><span class="line">    //启用core spotlight，不使用的话可以删掉</span><br><span class="line">    self.userActivity = activity;</span><br><span class="line">    return activity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="按钮添加前后样式如下，需要实现代理完成不同的跳转"><a href="#按钮添加前后样式如下，需要实现代理完成不同的跳转" class="headerlink" title="按钮添加前后样式如下，需要实现代理完成不同的跳转"></a>按钮添加前后样式如下，需要实现代理完成不同的跳转</h5><p>userActivity未加入到Siri的状态</p>
+<p><img src="http://image.liangqili.com/SiriKit/addBtnOriginal.jpeg" alt></p>
+<p>userActivity已经加入到Siri的状态</p>
+<p><img src="http://image.liangqili.com/SiriKit/addBtnExist.jpeg" alt></p>
+<p>实现INUIAddVoiceShortcutButtonDelegate代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIAddVoiceShortcutButtonDelegate</span><br><span class="line">//新添加</span><br><span class="line">- (void)presentAddVoiceShortcutViewController:(INUIAddVoiceShortcutViewController *)addVoiceShortcutViewController forAddVoiceShortcutButton:(INUIAddVoiceShortcutButton *)addVoiceShortcutButton  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    //新添加界面的代理</span><br><span class="line">    addVoiceShortcutViewController.delegate = self;</span><br><span class="line">    [self presentViewController:addVoiceShortcutViewController animated:YES completion:nil];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">//添加过，去编辑</span><br><span class="line">- (void)presentEditVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)editVoiceShortcutViewController forAddVoiceShortcutButton:(INUIAddVoiceShortcutButton *)addVoiceShortcutButton  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    //编辑界面的代理</span><br><span class="line">    editVoiceShortcutViewController.delegate = self;</span><br><span class="line">    [self presentViewController:editVoiceShortcutViewController animated:YES completion:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跳转不同的界面也有不同的代理</p>
+<ul>
+<li>新添加界面的代理INUIAddVoiceShortcutViewControllerDelegate</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIAddVoiceShortcutViewControllerDelegate</span><br><span class="line"></span><br><span class="line">- (void)addVoiceShortcutViewController:(INUIAddVoiceShortcutViewController *)controller didFinishWithVoiceShortcut:(nullable INVoiceShortcut *)voiceShortcut error:(nullable NSError *)error  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    if (!error) &#123;</span><br><span class="line">        NSLog(@&quot;%@, %@&quot;, voiceShortcut.invocationPhrase, voiceShortcut.identifier);</span><br><span class="line">        [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">            NSLog(@&quot;添加成功&quot;);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;, error.localizedDescription);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)addVoiceShortcutViewControllerDidCancel:(INUIAddVoiceShortcutViewController *)controller  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;取消添加&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.liangqili.com/SiriKit/addView.jpeg" alt></p>
+<ul>
+<li>已添加，编辑界面代理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIEditVoiceShortcutViewControllerDelegate</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)controller didUpdateVoiceShortcut:(nullable INVoiceShortcut *)voiceShortcut error:(nullable NSError *)error  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    if (!error) &#123;</span><br><span class="line">        NSLog(@&quot;%@, %@&quot;, voiceShortcut.invocationPhrase, voiceShortcut.identifier);</span><br><span class="line">        [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">            NSLog(@&quot;修改成功&quot;);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;, error.localizedDescription);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)controller didDeleteVoiceShortcutWithIdentifier:(NSUUID *)deletedVoiceShortcutIdentifier  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;删除指令&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewControllerDidCancel:(INUIEditVoiceShortcutViewController *)controller  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;取消添加&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.liangqili.com/SiriKit/editView.jpeg" alt></p>
+<h5 id="AppDelegate中处理跳转信息"><a href="#AppDelegate中处理跳转信息" class="headerlink" title="AppDelegate中处理跳转信息"></a>AppDelegate中处理跳转信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler&#123;</span><br><span class="line">    </span><br><span class="line">    //Siri Shortcut相关</span><br><span class="line">    if ([userActivity.activityType isEqualToString:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;]) &#123;</span><br><span class="line">        NSString *resourceBundle = [[NSBundle mainBundle] pathForResource:@&quot;qihooloan_res&quot; ofType:@&quot;bundle&quot;];</span><br><span class="line">        UIStoryboard *board = [UIStoryboard storyboardWithName:@&quot;MainSDK&quot; bundle:[NSBundle bundleWithPath:resourceBundle]];</span><br><span class="line">        UIViewController *vc = [board instantiateViewControllerWithIdentifier:@&quot;CheckSystemInfoViewController&quot;];</span><br><span class="line">        [[UIWindow uxy_optimizedVisibleViewController].navigationController pushViewController:vc animated:YES];</span><br><span class="line">    &#125;</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="自定义Siri按钮及跳转"><a href="#自定义Siri按钮及跳转" class="headerlink" title="自定义Siri按钮及跳转"></a>自定义Siri按钮及跳转</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//判断 可以自定义添加到Siri按钮</span><br><span class="line">- (void)isVoiceShortcutExist &#123;</span><br><span class="line">    //回调再子线程，如操作UI需要回到主线程</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        [[INVoiceShortcutCenter sharedCenter] getAllVoiceShortcutsWithCompletion:^(NSArray&lt;INVoiceShortcut *&gt; * _Nullable voiceShortcuts, NSError * _Nullable error) &#123;</span><br><span class="line">            if (!error) &#123;</span><br><span class="line">                for (INVoiceShortcut *shortcut in voiceShortcuts) &#123;</span><br><span class="line">                    //存在</span><br><span class="line">                    if ([shortcut.shortcut.userActivity.activityType isEqualToString:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;]) &#123;</span><br><span class="line">                        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                            //添加一个按钮，可以点击跳转INUIEditVoiceShortcutViewController，INUIEditVoiceShortcutViewController需要自己生成</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        //不存在</span><br><span class="line">                        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                            //添加一个按钮，可以点击跳转INUIAddVoiceShortcutViewController，INUIAddVoiceShortcutViewController需要自己生成</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.liangqili.com/hexo/hexo/2019/05/31/SiriShortcut/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liangqili">
+      <meta itemprop="description" content="健身搬砖了解一下">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13734023?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lifeasy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/hexo/2019/05/31/SiriShortcut/" class="post-title-link" itemprop="url">SiriShortcut</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-31 14:01:26" itemprop="dateCreated datePublished" datetime="2019-05-31T14:01:26+08:00">2019-05-31</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/hexo/2019/05/31/SiriShortcut/" class="leancloud_visitors" data-flag-title="SiriShortcut">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.liangqili.com/hexo/hexo/2019/05/31/CoreSpotlight使用总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liangqili">
+      <meta itemprop="description" content="健身搬砖了解一下">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13734023?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lifeasy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/hexo/2019/05/31/CoreSpotlight使用总结/" class="post-title-link" itemprop="url">CoreSpotlight使用总结</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-31 13:59:52 / 修改时间：14:01:09" itemprop="dateCreated datePublished" datetime="2019-05-31T13:59:52+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/hexo/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/hexo/2019/05/31/CoreSpotlight使用总结/" class="leancloud_visitors" data-flag-title="CoreSpotlight使用总结">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Core-Spotlight-搜索"><a href="#Core-Spotlight-搜索" class="headerlink" title="Core Spotlight 搜索"></a>Core Spotlight 搜索</h4><h5 id="可以做什么？"><a href="#可以做什么？" class="headerlink" title="可以做什么？"></a>可以做什么？</h5><ul>
+<li>在手机全局搜索中输入搜索关键词，出现自定义搜索相关项，点击完成相关操作（拨打电话、导航、携带相关信息进入app完成操作）</li>
+<li>增加App曝光率，易于集成操作。</li>
+</ul>
+<p><img src="http://image.liangqili.com/CoreSpotlight/searchtest.png" alt></p>
+<h5 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h5><ul>
+<li><blockquote>
+<p>iOS9</p>
+</blockquote>
+</li>
+<li>最好在子线程创建索引，索引数量在数千级别之下，太多会影响性能</li>
+<li>默认失效日期为一个月，可以自行设置</li>
+</ul>
+<h5 id="集成优势"><a href="#集成优势" class="headerlink" title="集成优势"></a>集成优势</h5><ul>
+<li>Api简单，模块独立，方便从H5调用本地Api进行索引的创建，修改，删除。</li>
+</ul>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><ul>
+<li>导入框架</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;CoreSpotlight/CoreSpotlight.h&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建<code>CSSearchableItem</code>，每一个<code>CSSearchableItem</code>对应一个搜索项</li>
+<li><p><code>CSSearchableItemAttributeSet</code>为Item的属性set，</p>
+<ul>
+<li>title：展示标题</li>
+<li>contentDescription：展示内容</li>
+<li>rating：星评分数</li>
+<li>thumbnailData：展示图片，不设置的话默认为AppIcon</li>
+<li>contactKeywords：搜索关键词，title也可以用于搜索</li>
+<li>supportsNavigation：开启支持导航，latitude，longitude经纬度</li>
+<li>supportsPhoneCall：开启支持通话，phoneNumbers通话号码</li>
+</ul>
+</li>
+<li><p><code>CSSearchableItem</code>的属性</p>
+<ul>
+<li>uniqueIdentifier：唯一标识符</li>
+<li>domainIdentifier：域标识符，相当于所属文件夹</li>
+<li>expirationDate：失效时间，默认一个月</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> 基本搜索展示</span><br><span class="line"> </span><br><span class="line"> @return CSSearchableItem</span><br><span class="line"> */</span><br><span class="line">- (CSSearchableItem *)basicCoreSpotlight &#123;</span><br><span class="line">    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];</span><br><span class="line">    //显示标题</span><br><span class="line">    set.title = @&quot;我是Title&quot;;</span><br><span class="line">    //显示内容</span><br><span class="line">    set.contentDescription = @&quot;我是Description&quot;;</span><br><span class="line">    //搜索关键词 标题也可以用于搜索</span><br><span class="line">    set.contactKeywords = @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];</span><br><span class="line">    //每一个CSSearchableItem对应一个搜索项</span><br><span class="line">    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;basic&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];</span><br><span class="line">    //过期时间</span><br><span class="line">    item.expirationDate = [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];</span><br><span class="line">    return item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 图片星评展示</span><br><span class="line"> </span><br><span class="line"> @return CSSearchableItem</span><br><span class="line"> */</span><br><span class="line">- (CSSearchableItem *)imageRateCoreSpotlight &#123;</span><br><span class="line">    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];</span><br><span class="line">    set.title = @&quot;我是Title&quot;;</span><br><span class="line">    set.contentDescription = @&quot;我是Description&quot;;</span><br><span class="line">    //星评</span><br><span class="line">    set.rating = @(3.5);</span><br><span class="line">    //展示图片，不设置的话默认AppIcon</span><br><span class="line">    set.thumbnailData = UIImagePNGRepresentation([UIImage imageNamed:@&quot;money&quot;]);</span><br><span class="line">    set.contactKeywords = @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];</span><br><span class="line">    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;image&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];</span><br><span class="line">    //过期时间</span><br><span class="line">    item.expirationDate = [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];</span><br><span class="line">    return item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 导航</span><br><span class="line"> </span><br><span class="line"> @return CSSearchableItem</span><br><span class="line"> */</span><br><span class="line">- (CSSearchableItem *)locationCoreSpotlight &#123;</span><br><span class="line">    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];</span><br><span class="line">    set.title = @&quot;我是Title&quot;;</span><br><span class="line">    set.contentDescription = @&quot;我是Description&quot;;</span><br><span class="line">    set.thumbnailData = UIImagePNGRepresentation([UIImage imageNamed:@&quot;location&quot;]);</span><br><span class="line">    //开启导航</span><br><span class="line">    set.supportsNavigation = @(YES);</span><br><span class="line">    //导航目的地</span><br><span class="line">    set.latitude = @(22.571561);</span><br><span class="line">    set.longitude = @(114.059831);</span><br><span class="line">    //搜索关键词</span><br><span class="line">    set.contactKeywords = @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];</span><br><span class="line">    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;location&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];</span><br><span class="line">    //过期时间</span><br><span class="line">    item.expirationDate = [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];</span><br><span class="line">    return item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> phoneCall</span><br><span class="line"></span><br><span class="line"> @return CSSearchableItem</span><br><span class="line"> */</span><br><span class="line">- (CSSearchableItem *)phoneCallCoreSpotlight &#123;</span><br><span class="line">    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];</span><br><span class="line">    set.title = @&quot;我是Title&quot;;</span><br><span class="line">    set.contentDescription = @&quot;我是Description&quot;;</span><br><span class="line">    set.thumbnailData = UIImagePNGRepresentation([UIImage imageNamed:@&quot;phoneCall&quot;]);</span><br><span class="line">    //开启支持通话</span><br><span class="line">    set.supportsPhoneCall = @(YES);</span><br><span class="line">    //通话号码</span><br><span class="line">    set.phoneNumbers = @[@&quot;10086&quot;];</span><br><span class="line">    //搜索关键词</span><br><span class="line">    set.contactKeywords = @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];</span><br><span class="line">    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;phoneCall&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];</span><br><span class="line">    //过期时间</span><br><span class="line">    item.expirationDate = [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];</span><br><span class="line">    return item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.liangqili.com/CoreSpotlight/searchguide.png" alt></p>
+<ul>
+<li>将创建的CSSearchableItem加入到系统索引中，然后在系统的搜索栏中搜索关键字就可以找到创建的item</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NSArray *items = @[[self basicCoreSpotlight],[self imageRateCoreSpotlight],[self locationCoreSpotlight],[self phoneCallCoreSpotlight]];</span><br><span class="line">    CSSearchableIndex *index = [CSSearchableIndex defaultSearchableIndex];</span><br><span class="line">    //更新，添加索引项</span><br><span class="line">    [index indexSearchableItems:items completionHandler:^(NSError * _Nullable error) &#123;</span><br><span class="line">        if (!error) &#123;</span><br><span class="line">            NSLog(@&quot;success&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            NSLog(@&quot;error : %@&quot;,error);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除索引</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">CSSearchableIndex *index = [CSSearchableIndex defaultSearchableIndex];</span><br><span class="line">    //按统一标识符删</span><br><span class="line">    [index deleteSearchableItemsWithIdentifiers:@[@&quot;basic&quot;] completionHandler:^(NSError * _Nullable error) &#123;</span><br><span class="line">        if (!error) &#123;</span><br><span class="line">            NSLog(@&quot;success&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            NSLog(@&quot;error : %@&quot;,error);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    //按域名删</span><br><span class="line">    [index deleteSearchableItemsWithDomainIdentifiers:@[@&quot;Qihoo&quot;] completionHandler:^(NSError * _Nullable error) &#123;</span><br><span class="line">        if (!error) &#123;</span><br><span class="line">            NSLog(@&quot;success&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            NSLog(@&quot;error : %@&quot;,error);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    //删除所有</span><br><span class="line">    [index deleteAllSearchableItemsWithCompletionHandler:^(NSError * _Nullable error) &#123;</span><br><span class="line">        if (!error) &#123;</span><br><span class="line">            NSLog(@&quot;success&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            NSLog(@&quot;error : %@&quot;,error);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>点击CoreSpotlight中的item，完成通话，导航或者挑战App继续完成相关动作</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//点击CSSearchableItem进入会出发AppDelegate的这个方法，相关CSSearchableItem信息被封装在NSUserActivity中</span><br><span class="line">- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray&lt;id&lt;UIUserActivityRestoring&gt;&gt; * _Nullable))restorationHandler &#123;</span><br><span class="line">    NSString *idetifier = userActivity.userInfo[CSSearchableItemActivityIdentifier];</span><br><span class="line">    NSLog(@&quot;idetifier : %@&quot;,idetifier);</span><br><span class="line">    NSString *activityType = userActivity.activityType;</span><br><span class="line">    NSLog(@&quot;activityType : %@&quot;,activityType);</span><br><span class="line">        </span><br><span class="line">    // 根据 activityType、idetifier 识别索引</span><br><span class="line">    if ([idetifier isEqualToString:@&quot;basic&quot;]) &#123;</span><br><span class="line">        //do Something</span><br><span class="line">    &#125; else if ([idetifier isEqualToString:@&quot;image&quot;])&#123;</span><br><span class="line">        //do Something</span><br><span class="line">    &#125; else if ([idetifier isEqualToString:@&quot;location&quot;]) &#123;</span><br><span class="line">        //do Something</span><br><span class="line">    &#125; else if ([idetifier isEqualToString:@&quot;phoneCall&quot;]) &#123;</span><br><span class="line">        //do Something</span><br><span class="line">    &#125;    </span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.liangqili.com/hexo/hexo/2019/05/31/SiriKit个人使用总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -416,7 +993,7 @@
                 
               
 
-              <time title="创建时间：2019-05-31 13:47:35 / 修改时间：13:54:06" itemprop="dateCreated datePublished" datetime="2019-05-31T13:47:35+08:00">2019-05-31</time>
+              <time title="创建时间：2019-05-31 13:47:35 / 修改时间：13:59:28" itemprop="dateCreated datePublished" datetime="2019-05-31T13:47:35+08:00">2019-05-31</time>
             
 
             
@@ -978,7 +1555,7 @@
                 
                   <a href="/hexo/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1020,7 +1597,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

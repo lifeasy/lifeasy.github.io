@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/hexo/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/hexo/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/hexo/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/hexo/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/hexo/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/hexo/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Siri Shortcut &amp;amp;&amp;amp; NSUserActivity可以做什么 通过Siri，说出预先自定义的语音，进入到app，完成相关动作   iOS12 之后，NSUserActivity可以用于SiriKit ShortCuts，通过自定义语音唤起App完成相关动作用户必须进入过相关界面，并且添加自定义语音到SiriDemo ：feature/SiriShortcut 借条可用，">
+<meta name="keywords" content="siriShortcut,NSUserActivity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SiriShortcut和NSUserActivity">
+<meta property="og:url" content="https://www.liangqili.com/hexo/2019/05/31/SiriShortcut和NSUserActivity/index.html">
+<meta property="og:site_name" content="Lifeasy">
+<meta property="og:description" content="Siri Shortcut &amp;amp;&amp;amp; NSUserActivity可以做什么 通过Siri，说出预先自定义的语音，进入到app，完成相关动作   iOS12 之后，NSUserActivity可以用于SiriKit ShortCuts，通过自定义语音唤起App完成相关动作用户必须进入过相关界面，并且添加自定义语音到SiriDemo ：feature/SiriShortcut 借条可用，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/sirishortcut.gif">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/useractivitytype.png">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/addBtnOriginal.jpeg">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/addBtnExist.jpeg">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/addView.jpeg">
+<meta property="og:image" content="http://image.liangqili.com/SiriKit/editView.jpeg">
+<meta property="og:updated_time" content="2019-05-31T06:02:46.987Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SiriShortcut和NSUserActivity">
+<meta name="twitter:description" content="Siri Shortcut &amp;amp;&amp;amp; NSUserActivity可以做什么 通过Siri，说出预先自定义的语音，进入到app，完成相关动作   iOS12 之后，NSUserActivity可以用于SiriKit ShortCuts，通过自定义语音唤起App完成相关动作用户必须进入过相关界面，并且添加自定义语音到SiriDemo ：feature/SiriShortcut 借条可用，">
+<meta name="twitter:image" content="http://image.liangqili.com/SiriKit/sirishortcut.gif">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://www.liangqili.com/hexo/2019/05/31/SiriShortcut和NSUserActivity/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SiriShortcut和NSUserActivity | Lifeasy</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/hexo/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lifeasy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">天道酬勤</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/hexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/hexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/hexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/hexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/hexo/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/lifeasy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.liangqili.com/hexo/hexo/2019/05/31/SiriShortcut和NSUserActivity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liangqili">
+      <meta itemprop="description" content="健身搬砖了解一下">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13734023?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lifeasy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SiriShortcut和NSUserActivity
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-31 14:01:46 / 修改时间：14:02:46" itemprop="dateCreated datePublished" datetime="2019-05-31T14:01:46+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/hexo/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/hexo/2019/05/31/SiriShortcut和NSUserActivity/" class="leancloud_visitors" data-flag-title="SiriShortcut和NSUserActivity">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Siri-Shortcut-amp-amp-NSUserActivity"><a href="#Siri-Shortcut-amp-amp-NSUserActivity" class="headerlink" title="Siri Shortcut &amp;&amp; NSUserActivity"></a>Siri Shortcut &amp;&amp; NSUserActivity</h4><h5 id="可以做什么"><a href="#可以做什么" class="headerlink" title="可以做什么"></a>可以做什么</h5><ul>
+<li>通过Siri，说出预先自定义的语音，进入到app，完成相关动作</li>
+</ul>
+<blockquote>
+<p>iOS12 之后，NSUserActivity可以用于SiriKit ShortCuts，通过自定义语音唤起App完成相关动作<br>用户必须进入过相关界面，并且添加自定义语音到Siri<br><a href="https://v.src.corp.qihoo.net/360jr-fe/qihooloan-ios/tree/feature/SiriShortcut" target="_blank" rel="noopener">Demo ：feature/SiriShortcut</a> 借条可用，快速进入CheckSystemInfo界面</p>
+</blockquote>
+<p><img src="http://image.liangqili.com/SiriKit/sirishortcut.gif" alt></p>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><ul>
+<li>iOS 12之后</li>
+</ul>
+<h5 id="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"><a href="#添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes" class="headerlink" title="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"></a>添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes</h5><p><img src="http://image.liangqili.com/SiriKit/useractivitytype.png" alt></p>
+<h5 id="添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"><a href="#添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍" class="headerlink" title="添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"></a>添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//添加按钮</span><br><span class="line">- (void)addVoiceShortcutButton &#123;</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        //此按钮可以自行判断shortcut中的userActivity是否已经添加过，从而显示不同的样式</span><br><span class="line">        INUIAddVoiceShortcutButton *voiceBtn = [[INUIAddVoiceShortcutButton alloc] initWithStyle:INUIAddVoiceShortcutButtonStyleWhiteOutline];</span><br><span class="line">        voiceBtn.shortcut = [[INShortcut alloc] initWithUserActivity:[self createRelevantUserActivity]];</span><br><span class="line">        //按钮点击事件的代理</span><br><span class="line">        voiceBtn.delegate = self;</span><br><span class="line">        voiceBtn.translatesAutoresizingMaskIntoConstraints = NO;</span><br><span class="line">        //按钮需要约束布局，测试设置frame无效</span><br><span class="line">        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UXY_SCREEN_WIDTH, 400)];</span><br><span class="line">        [bottomView addSubview:voiceBtn];</span><br><span class="line">        [[bottomView.centerXAnchor constraintEqualToAnchor:voiceBtn.centerXAnchor] setActive:YES];</span><br><span class="line">        [[bottomView.centerYAnchor constraintEqualToAnchor:voiceBtn.centerYAnchor] setActive:YES];</span><br><span class="line">        self.tableView.tableFooterView = bottomView;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//创建相关userActivity</span><br><span class="line">- (NSUserActivity *)createRelevantUserActivity &#123;</span><br><span class="line">    NSUserActivity *activity = [[NSUserActivity alloc] initWithActivityType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];</span><br><span class="line">    //显示在siri 建议或者core spotlight 中的标题</span><br><span class="line">    activity.title = @&quot;版本信息&quot;;</span><br><span class="line">    //core spotlight关键词，和siri无关</span><br><span class="line">    activity.keywords = [NSSet setWithArray:@[@&quot;版本信息&quot;,@&quot;查看版本&quot;]];</span><br><span class="line">    //携带的用户信息</span><br><span class="line">    activity.userInfo = @&#123;@&quot;qihoo&quot;:@&quot;checksysteminfo&quot;&#125;;</span><br><span class="line">    //开启用于检索</span><br><span class="line">    activity.eligibleForSearch = YES;</span><br><span class="line">    //ios12 sirikit</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        //开启sirikit</span><br><span class="line">        activity.eligibleForPrediction = YES;</span><br><span class="line">        //建议语句，会显示在添加Siri捷径的界面中</span><br><span class="line">        activity.suggestedInvocationPhrase = @&quot;查看版本&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    //其他相关显示信息，不了解可以查看core spotlight一文</span><br><span class="line">    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];</span><br><span class="line">    set.contentDescription = @&quot;检查应用的版本信息&quot;;</span><br><span class="line">    activity.contentAttributeSet = set;</span><br><span class="line">    //启用core spotlight，不使用的话可以删掉</span><br><span class="line">    self.userActivity = activity;</span><br><span class="line">    return activity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="按钮添加前后样式如下，需要实现代理完成不同的跳转"><a href="#按钮添加前后样式如下，需要实现代理完成不同的跳转" class="headerlink" title="按钮添加前后样式如下，需要实现代理完成不同的跳转"></a>按钮添加前后样式如下，需要实现代理完成不同的跳转</h5><p>userActivity未加入到Siri的状态</p>
+<p><img src="http://image.liangqili.com/SiriKit/addBtnOriginal.jpeg" alt></p>
+<p>userActivity已经加入到Siri的状态</p>
+<p><img src="http://image.liangqili.com/SiriKit/addBtnExist.jpeg" alt></p>
+<p>实现INUIAddVoiceShortcutButtonDelegate代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIAddVoiceShortcutButtonDelegate</span><br><span class="line">//新添加</span><br><span class="line">- (void)presentAddVoiceShortcutViewController:(INUIAddVoiceShortcutViewController *)addVoiceShortcutViewController forAddVoiceShortcutButton:(INUIAddVoiceShortcutButton *)addVoiceShortcutButton  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    //新添加界面的代理</span><br><span class="line">    addVoiceShortcutViewController.delegate = self;</span><br><span class="line">    [self presentViewController:addVoiceShortcutViewController animated:YES completion:nil];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">//添加过，去编辑</span><br><span class="line">- (void)presentEditVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)editVoiceShortcutViewController forAddVoiceShortcutButton:(INUIAddVoiceShortcutButton *)addVoiceShortcutButton  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    //编辑界面的代理</span><br><span class="line">    editVoiceShortcutViewController.delegate = self;</span><br><span class="line">    [self presentViewController:editVoiceShortcutViewController animated:YES completion:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跳转不同的界面也有不同的代理</p>
+<ul>
+<li>新添加界面的代理INUIAddVoiceShortcutViewControllerDelegate</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIAddVoiceShortcutViewControllerDelegate</span><br><span class="line"></span><br><span class="line">- (void)addVoiceShortcutViewController:(INUIAddVoiceShortcutViewController *)controller didFinishWithVoiceShortcut:(nullable INVoiceShortcut *)voiceShortcut error:(nullable NSError *)error  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    if (!error) &#123;</span><br><span class="line">        NSLog(@&quot;%@, %@&quot;, voiceShortcut.invocationPhrase, voiceShortcut.identifier);</span><br><span class="line">        [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">            NSLog(@&quot;添加成功&quot;);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;, error.localizedDescription);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)addVoiceShortcutViewControllerDidCancel:(INUIAddVoiceShortcutViewController *)controller  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;取消添加&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.liangqili.com/SiriKit/addView.jpeg" alt></p>
+<ul>
+<li>已添加，编辑界面代理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - INUIEditVoiceShortcutViewControllerDelegate</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)controller didUpdateVoiceShortcut:(nullable INVoiceShortcut *)voiceShortcut error:(nullable NSError *)error  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    if (!error) &#123;</span><br><span class="line">        NSLog(@&quot;%@, %@&quot;, voiceShortcut.invocationPhrase, voiceShortcut.identifier);</span><br><span class="line">        [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">            NSLog(@&quot;修改成功&quot;);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;, error.localizedDescription);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)controller didDeleteVoiceShortcutWithIdentifier:(NSUUID *)deletedVoiceShortcutIdentifier  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;删除指令&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)editVoiceShortcutViewControllerDidCancel:(INUIEditVoiceShortcutViewController *)controller  API_AVAILABLE(ios(12.0))&#123;</span><br><span class="line">    [controller dismissViewControllerAnimated:YES completion:^&#123;</span><br><span class="line">        NSLog(@&quot;取消添加&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.liangqili.com/SiriKit/editView.jpeg" alt></p>
+<h5 id="AppDelegate中处理跳转信息"><a href="#AppDelegate中处理跳转信息" class="headerlink" title="AppDelegate中处理跳转信息"></a>AppDelegate中处理跳转信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler&#123;</span><br><span class="line">    </span><br><span class="line">    //Siri Shortcut相关</span><br><span class="line">    if ([userActivity.activityType isEqualToString:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;]) &#123;</span><br><span class="line">        NSString *resourceBundle = [[NSBundle mainBundle] pathForResource:@&quot;qihooloan_res&quot; ofType:@&quot;bundle&quot;];</span><br><span class="line">        UIStoryboard *board = [UIStoryboard storyboardWithName:@&quot;MainSDK&quot; bundle:[NSBundle bundleWithPath:resourceBundle]];</span><br><span class="line">        UIViewController *vc = [board instantiateViewControllerWithIdentifier:@&quot;CheckSystemInfoViewController&quot;];</span><br><span class="line">        [[UIWindow uxy_optimizedVisibleViewController].navigationController pushViewController:vc animated:YES];</span><br><span class="line">    &#125;</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="自定义Siri按钮及跳转"><a href="#自定义Siri按钮及跳转" class="headerlink" title="自定义Siri按钮及跳转"></a>自定义Siri按钮及跳转</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//判断 可以自定义添加到Siri按钮</span><br><span class="line">- (void)isVoiceShortcutExist &#123;</span><br><span class="line">    //回调再子线程，如操作UI需要回到主线程</span><br><span class="line">    if (@available(iOS 12.0, *)) &#123;</span><br><span class="line">        [[INVoiceShortcutCenter sharedCenter] getAllVoiceShortcutsWithCompletion:^(NSArray&lt;INVoiceShortcut *&gt; * _Nullable voiceShortcuts, NSError * _Nullable error) &#123;</span><br><span class="line">            if (!error) &#123;</span><br><span class="line">                for (INVoiceShortcut *shortcut in voiceShortcuts) &#123;</span><br><span class="line">                    //存在</span><br><span class="line">                    if ([shortcut.shortcut.userActivity.activityType isEqualToString:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;]) &#123;</span><br><span class="line">                        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                            //添加一个按钮，可以点击跳转INUIEditVoiceShortcutViewController，INUIEditVoiceShortcutViewController需要自己生成</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        //不存在</span><br><span class="line">                        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                            //添加一个按钮，可以点击跳转INUIAddVoiceShortcutViewController，INUIAddVoiceShortcutViewController需要自己生成</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/hexo/images/wechatpay.png" alt="Liangqili 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/hexo/images/alipay.png" alt="Liangqili 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/hexo/tags/siriShortcut/" rel="tag"># siriShortcut</a>
+          
+            <a href="/hexo/tags/NSUserActivity/" rel="tag"># NSUserActivity</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo/2019/05/31/SiriShortcut/" rel="next" title="SiriShortcut">
+                <i class="fa fa-chevron-left"></i> SiriShortcut
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDE3OS8yMDcxMg"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars3.githubusercontent.com/u/13734023?s=460&v=4" alt="Liangqili">
+            
+              <p class="site-author-name" itemprop="name">Liangqili</p>
+              <div class="site-description motion-element" itemprop="description">健身搬砖了解一下</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/hexo/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/hexo/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/hexo/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/lifeasy" title="GitHub &rarr; https://github.com/lifeasy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github-square"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:liangqili1988@gmail.com" title="E-Mail &rarr; mailto:liangqili1988@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Siri-Shortcut-amp-amp-NSUserActivity"><span class="nav-number">1.</span> <span class="nav-text">Siri Shortcut &amp;&amp; NSUserActivity</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可以做什么"><span class="nav-number">1.1.</span> <span class="nav-text">可以做什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码实现"><span class="nav-number">1.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"><span class="nav-number">1.3.</span> <span class="nav-text">添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"><span class="nav-number">1.4.</span> <span class="nav-text">添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按钮添加前后样式如下，需要实现代理完成不同的跳转"><span class="nav-number">1.5.</span> <span class="nav-text">按钮添加前后样式如下，需要实现代理完成不同的跳转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AppDelegate中处理跳转信息"><span class="nav-number">1.6.</span> <span class="nav-text">AppDelegate中处理跳转信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义Siri按钮及跳转"><span class="nav-number">1.7.</span> <span class="nav-text">自定义Siri按钮及跳转</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-trophy"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liangqili</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/hexo/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/fastclick@1/lib/fastclick.min.js"></script>
+
+  
+  <script src="/hexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/hexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/hexo/js/utils.js?v=7.1.0"></script>
+
+  <script src="/hexo/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/hexo/js/affix.js?v=7.1.0"></script>
+
+  <script src="/hexo/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/hexo/js/scrollspy.js?v=7.1.0"></script>
+<script src="/hexo/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/hexo/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/05/31/SiriShortcut和NSUserActivity/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + '7wJhmJ7MC86vmjQHQNeydxeo-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': '7wJhmJ7MC86vmjQHQNeydxeo-gzGzoHsz',
+                'X-LC-Key': 'DlfIXcWJYqEG6oMjxa8mW4Fc',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
