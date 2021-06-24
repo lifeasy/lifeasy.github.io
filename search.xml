@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iOS静态库]]></title>
+    <url>%2Fhexo%2F2021%2F06%2F24%2FiOS%E9%9D%99%E6%80%81%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo操作]]></title>
     <url>%2Fhexo%2F2021%2F03%2F31%2FHexo%E6%93%8D%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[新建1$ hexo new hexo_handle 标题分类123456title: Hexo 操作date: 2021-03-31 10:44:58tags:- hexocategories:- note 操作123$ hexo clean$ hexo g$ hexo d 安装hexo-cli1$ npm install -g hexo-cli 更新1$ npm update hexo 遇到问题1、&#123;% extends '_layout.swig' %&#125; 1$ npm i hexo-renderer-swig 2、external_link:true Deprecated 1234external_link: enable: true # Open external links in new tab field: site # Apply to the whole site exclude: &#x27;&#x27; 3、highlight Deprecated 123456789101112highlight: enable: true auto_detect: false line_number: true tab_replace: &#x27;&#x27; wrap: true hljs: falseprismjs: enable: false preprocess: true line_number: true tab_replace: &#x27;&#x27;]]></content>
