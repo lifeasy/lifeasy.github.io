@@ -547,8 +547,7 @@
 <h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><ul>
 <li>导入框架</li>
 </ul>
-<pre><code class="objective-c">#import &lt;CoreSpotlight/CoreSpotlight.h&gt;
-</code></pre>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import &lt;CoreSpotlight&#x2F;CoreSpotlight.h&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>创建<code>CSSearchableItem</code>，每一个<code>CSSearchableItem</code>对应一个搜索项</li>
 <li><p><code>CSSearchableItemAttributeSet</code>为Item的属性set，</p>
@@ -570,115 +569,113 @@
 </ul>
 </li>
 </ul>
-<pre><code class="objective-c">/**
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;**
  基本搜索展示
-
+ 
  @return CSSearchableItem
- */
+ *&#x2F;
 - (CSSearchableItem *)basicCoreSpotlight &#123;
-    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];
-    //显示标题
-    set.title = @&quot;我是Title&quot;;
-    //显示内容
-    set.contentDescription = @&quot;我是Description&quot;;
-    //搜索关键词 标题也可以用于搜索
-    set.contactKeywords = @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];
-    //每一个CSSearchableItem对应一个搜索项
-    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;basic&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];
-    //过期时间
-    item.expirationDate = [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];
+    CSSearchableItemAttributeSet *set &#x3D; [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];
+    &#x2F;&#x2F;显示标题
+    set.title &#x3D; @&quot;我是Title&quot;;
+    &#x2F;&#x2F;显示内容
+    set.contentDescription &#x3D; @&quot;我是Description&quot;;
+    &#x2F;&#x2F;搜索关键词 标题也可以用于搜索
+    set.contactKeywords &#x3D; @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];
+    &#x2F;&#x2F;每一个CSSearchableItem对应一个搜索项
+    CSSearchableItem *item &#x3D; [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;basic&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];
+    &#x2F;&#x2F;过期时间
+    item.expirationDate &#x3D; [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];
     return item;
 &#125;
 
 
-/**
+&#x2F;**
  图片星评展示
-
+ 
  @return CSSearchableItem
- */
+ *&#x2F;
 - (CSSearchableItem *)imageRateCoreSpotlight &#123;
-    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];
-    set.title = @&quot;我是Title&quot;;
-    set.contentDescription = @&quot;我是Description&quot;;
-    //星评
-    set.rating = @(3.5);
-    //展示图片，不设置的话默认AppIcon
-    set.thumbnailData = UIImagePNGRepresentation([UIImage imageNamed:@&quot;money&quot;]);
-    set.contactKeywords = @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];
-    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;image&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];
-    //过期时间
-    item.expirationDate = [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];
+    CSSearchableItemAttributeSet *set &#x3D; [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];
+    set.title &#x3D; @&quot;我是Title&quot;;
+    set.contentDescription &#x3D; @&quot;我是Description&quot;;
+    &#x2F;&#x2F;星评
+    set.rating &#x3D; @(3.5);
+    &#x2F;&#x2F;展示图片，不设置的话默认AppIcon
+    set.thumbnailData &#x3D; UIImagePNGRepresentation([UIImage imageNamed:@&quot;money&quot;]);
+    set.contactKeywords &#x3D; @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];
+    CSSearchableItem *item &#x3D; [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;image&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];
+    &#x2F;&#x2F;过期时间
+    item.expirationDate &#x3D; [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];
     return item;
 &#125;
 
 
-/**
+&#x2F;**
  导航
-
+ 
  @return CSSearchableItem
- */
+ *&#x2F;
 - (CSSearchableItem *)locationCoreSpotlight &#123;
-    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];
-    set.title = @&quot;我是Title&quot;;
-    set.contentDescription = @&quot;我是Description&quot;;
-    set.thumbnailData = UIImagePNGRepresentation([UIImage imageNamed:@&quot;location&quot;]);
-    //开启导航
-    set.supportsNavigation = @(YES);
-    //导航目的地
-    set.latitude = @(22.571561);
-    set.longitude = @(114.059831);
-    //搜索关键词
-    set.contactKeywords = @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];
-    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;location&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];
-    //过期时间
-    item.expirationDate = [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];
+    CSSearchableItemAttributeSet *set &#x3D; [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];
+    set.title &#x3D; @&quot;我是Title&quot;;
+    set.contentDescription &#x3D; @&quot;我是Description&quot;;
+    set.thumbnailData &#x3D; UIImagePNGRepresentation([UIImage imageNamed:@&quot;location&quot;]);
+    &#x2F;&#x2F;开启导航
+    set.supportsNavigation &#x3D; @(YES);
+    &#x2F;&#x2F;导航目的地
+    set.latitude &#x3D; @(22.571561);
+    set.longitude &#x3D; @(114.059831);
+    &#x2F;&#x2F;搜索关键词
+    set.contactKeywords &#x3D; @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];
+    CSSearchableItem *item &#x3D; [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;location&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];
+    &#x2F;&#x2F;过期时间
+    item.expirationDate &#x3D; [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];
     return item;
 &#125;
 
 
-/**
+&#x2F;**
  phoneCall
 
  @return CSSearchableItem
- */
+ *&#x2F;
 - (CSSearchableItem *)phoneCallCoreSpotlight &#123;
-    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];
-    set.title = @&quot;我是Title&quot;;
-    set.contentDescription = @&quot;我是Description&quot;;
-    set.thumbnailData = UIImagePNGRepresentation([UIImage imageNamed:@&quot;phoneCall&quot;]);
-    //开启支持通话
-    set.supportsPhoneCall = @(YES);
-    //通话号码
-    set.phoneNumbers = @[@&quot;10086&quot;];
-    //搜索关键词
-    set.contactKeywords = @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];
-    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;phoneCall&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];
-    //过期时间
-    item.expirationDate = [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];
+    CSSearchableItemAttributeSet *set &#x3D; [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;Qihoo&quot;];
+    set.title &#x3D; @&quot;我是Title&quot;;
+    set.contentDescription &#x3D; @&quot;我是Description&quot;;
+    set.thumbnailData &#x3D; UIImagePNGRepresentation([UIImage imageNamed:@&quot;phoneCall&quot;]);
+    &#x2F;&#x2F;开启支持通话
+    set.supportsPhoneCall &#x3D; @(YES);
+    &#x2F;&#x2F;通话号码
+    set.phoneNumbers &#x3D; @[@&quot;10086&quot;];
+    &#x2F;&#x2F;搜索关键词
+    set.contactKeywords &#x3D; @[@&quot;360&quot;,@&quot;贷款&quot;,@&quot;没钱&quot;];
+    CSSearchableItem *item &#x3D; [[CSSearchableItem alloc] initWithUniqueIdentifier:@&quot;phoneCall&quot; domainIdentifier:@&quot;com.liang&quot; attributeSet:set];
+    &#x2F;&#x2F;过期时间
+    item.expirationDate &#x3D; [NSDate dateWithTimeIntervalSinceNow:10 * 24 * 3600];
     return item;
 &#125;
-
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="http://image.liangqili.com/CoreSpotlight/searchguide.png" width="50%" height="50%"></p>
 <ul>
 <li>将创建的CSSearchableItem加入到系统索引中，然后在系统的搜索栏中搜索关键字就可以找到创建的item</li>
 </ul>
-<pre><code class="objective-c">NSArray *items = @[[self basicCoreSpotlight],[self imageRateCoreSpotlight],[self locationCoreSpotlight],[self phoneCallCoreSpotlight]];
-    CSSearchableIndex *index = [CSSearchableIndex defaultSearchableIndex];
-    //更新，添加索引项
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">NSArray *items &#x3D; @[[self basicCoreSpotlight],[self imageRateCoreSpotlight],[self locationCoreSpotlight],[self phoneCallCoreSpotlight]];
+    CSSearchableIndex *index &#x3D; [CSSearchableIndex defaultSearchableIndex];
+    &#x2F;&#x2F;更新，添加索引项
     [index indexSearchableItems:items completionHandler:^(NSError * _Nullable error) &#123;
         if (!error) &#123;
             NSLog(@&quot;success&quot;);
         &#125; else &#123;
             NSLog(@&quot;error : %@&quot;,error);
         &#125;
-    &#125;];
-</code></pre>
+    &#125;];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>删除索引</li>
 </ul>
-<pre><code class="objective-c">CSSearchableIndex *index = [CSSearchableIndex defaultSearchableIndex];
-    //按统一标识符删
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">CSSearchableIndex *index &#x3D; [CSSearchableIndex defaultSearchableIndex];
+    &#x2F;&#x2F;按统一标识符删
     [index deleteSearchableItemsWithIdentifiers:@[@&quot;basic&quot;] completionHandler:^(NSError * _Nullable error) &#123;
         if (!error) &#123;
             NSLog(@&quot;success&quot;);
@@ -686,7 +683,7 @@
             NSLog(@&quot;error : %@&quot;,error);
         &#125;
     &#125;];
-    //按域名删
+    &#x2F;&#x2F;按域名删
     [index deleteSearchableItemsWithDomainIdentifiers:@[@&quot;Qihoo&quot;] completionHandler:^(NSError * _Nullable error) &#123;
         if (!error) &#123;
             NSLog(@&quot;success&quot;);
@@ -694,7 +691,7 @@
             NSLog(@&quot;error : %@&quot;,error);
         &#125;
     &#125;];
-    //删除所有
+    &#x2F;&#x2F;删除所有
     [index deleteAllSearchableItemsWithCompletionHandler:^(NSError * _Nullable error) &#123;
         if (!error) &#123;
             NSLog(@&quot;success&quot;);
@@ -702,31 +699,29 @@
             NSLog(@&quot;error : %@&quot;,error);
         &#125;
     &#125;];
-
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>点击CoreSpotlight中的item，完成通话，导航或者挑战App继续完成相关动作</li>
 </ul>
-<pre><code class="objective-c">//点击CSSearchableItem进入会出发AppDelegate的这个方法，相关CSSearchableItem信息被封装在NSUserActivity中
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F;点击CSSearchableItem进入会出发AppDelegate的这个方法，相关CSSearchableItem信息被封装在NSUserActivity中
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray&lt;id&lt;UIUserActivityRestoring&gt;&gt; * _Nullable))restorationHandler &#123;
-    NSString *idetifier = userActivity.userInfo[CSSearchableItemActivityIdentifier];
+    NSString *idetifier &#x3D; userActivity.userInfo[CSSearchableItemActivityIdentifier];
     NSLog(@&quot;idetifier : %@&quot;,idetifier);
-    NSString *activityType = userActivity.activityType;
+    NSString *activityType &#x3D; userActivity.activityType;
     NSLog(@&quot;activityType : %@&quot;,activityType);
-
-    // 根据 activityType、idetifier 识别索引
+        
+    &#x2F;&#x2F; 根据 activityType、idetifier 识别索引
     if ([idetifier isEqualToString:@&quot;basic&quot;]) &#123;
-        //do Something
+        &#x2F;&#x2F;do Something
     &#125; else if ([idetifier isEqualToString:@&quot;image&quot;])&#123;
-        //do Something
+        &#x2F;&#x2F;do Something
     &#125; else if ([idetifier isEqualToString:@&quot;location&quot;]) &#123;
-        //do Something
+        &#x2F;&#x2F;do Something
     &#125; else if ([idetifier isEqualToString:@&quot;phoneCall&quot;]) &#123;
-        //do Something
+        &#x2F;&#x2F;do Something
     &#125;    
     return YES;
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -886,7 +881,7 @@
                 
                   <a href="/hexo/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

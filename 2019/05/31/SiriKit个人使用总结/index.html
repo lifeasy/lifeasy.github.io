@@ -130,10 +130,6 @@
 <meta property="og:image" content="https://docs-assets.developer.apple.com/published/63ea07d81b/16f9b205-2c79-4bea-b89a-2ef26bc71ef1.png">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/SiriKit%E7%A4%BA%E4%BE%8B%E5%9B%BE.png">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/%E6%B7%BB%E5%8A%A0Siri_Capabilities.png">
-<meta property="og:image" content="http://image.liangqili.com/SiriKit/Siri_description.png">
-<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_Extension.png">
-<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_target.png">
-<meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_plist.png">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_lifecycle.png">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_lifecycle_2.jpg">
 <meta property="og:image" content="http://image.liangqili.com/SiriKit/Intents_ui_lifecycle.png">
@@ -653,60 +649,73 @@
 <p><img src="http://image.liangqili.com/SiriKit/%E6%B7%BB%E5%8A%A0Siri_Capabilities.png" width="50%" height="50%">  </p>
 <ol start="2">
 <li><p>请求Siri权限。</p>
-<p> <code>`</code>objective-c<br> //请求Siri权限<br> -(void)requestingAuthorizationToUseSiriKit {<br>   [INPreferences requestSiriAuthorization:^(INSiriAuthorizationStatus status) {</p>
-<pre><code>   if (status == INSiriAuthorizationStatusAuthorized) &#123;
+ <pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">	&#x2F;&#x2F;请求Siri权限
+	-(void)requestingAuthorizationToUseSiriKit &#123;
+	  [INPreferences requestSiriAuthorization:^(INSiriAuthorizationStatus status) &#123;
+	      if (status &#x3D;&#x3D; INSiriAuthorizationStatusAuthorized) &#123;
+	
+	      &#125; else &#123;
+	
+	    &#125;
+	  &#125;];
+	&#125;
+	        
 
-   &#125; else &#123;
+&lt;img alt&#x3D;&quot;Siri权限描述&quot; src&#x3D;&quot;http:&#x2F;&#x2F;image.liangqili.com&#x2F;SiriKit&#x2F;Siri_description.png&quot; width&#x3D;&quot;50%&quot; height&#x3D;&quot;50%&quot;&gt; 
 
- &#125;
-</code></pre><p>   }];<br> }</p>
-</li>
-</ol>
-<p><img alt="Siri权限描述" src="http://image.liangqili.com/SiriKit/Siri_description.png" width="50%" height="50%"> </p>
-<ol start="3">
-<li><p>添加Extension，添加Intents Extension，Xcode会附带提示是否添加Intents UI Extentsion（可选）。</p>
-<p> <img src="http://image.liangqili.com/SiriKit/Intents_Extension.png" width="50%" height="50%">   </p>
-<p> <img src="http://image.liangqili.com/SiriKit/Intents_target.png" width="50%" height="50%"> </p>
-</li>
-<li><p>配置对应Target的info.plist。plist文件中包含一个NSExtension字段，里面包含对应的配置;  </p>
-<p> |key|value|<br> |—|—–|<br> |NSExtensionPointIdentifier|com.apple.intents-service（固定值）|<br> |NSExtensionPrincipalClass|入口文件，首先相应Siri请求的文件|<br> |NSExtensionAttributes|包含两个值：IntentsRestrictedWhileLocked锁屏状态下禁止的域；IntentsSupported支持的域；域为上面介绍的11种类型中的一个或多个|</p>
-<p> <img src="http://image.liangqili.com/SiriKit/Intents_plist.png" width="50%" height="50%"> </p>
-</li>
-</ol>
-<h4 id="SiriKit处理流程"><a href="#SiriKit处理流程" class="headerlink" title="SiriKit处理流程"></a>SiriKit处理流程</h4><p>Siri解析出相关信息封装为Intent类型，通过plist中配置的入口文件找到相关类的<code>- (id)handlerForIntent:(INIntent *)intent</code>方法，询问具体处理事件的类</p>
-<pre><code class="objective-c">// 这里是SiriExtension的入口，判断意图类型
+3. 添加Extension，添加Intents Extension，Xcode会附带提示是否添加Intents UI Extentsion（可选）。
+
+	&lt;img src&#x3D;&quot;http:&#x2F;&#x2F;image.liangqili.com&#x2F;SiriKit&#x2F;Intents_Extension.png&quot; width&#x3D;&quot;50%&quot; height&#x3D;&quot;50%&quot;&gt;   
+	
+	&lt;img src&#x3D;&quot;http:&#x2F;&#x2F;image.liangqili.com&#x2F;SiriKit&#x2F;Intents_target.png&quot; width&#x3D;&quot;50%&quot; height&#x3D;&quot;50%&quot;&gt; 
+	
+4. 配置对应Target的info.plist。plist文件中包含一个NSExtension字段，里面包含对应的配置;  
+
+	|key|value|
+	|---|-----|
+	|NSExtensionPointIdentifier|com.apple.intents-service（固定值）|
+	|NSExtensionPrincipalClass|入口文件，首先相应Siri请求的文件|
+	|NSExtensionAttributes|包含两个值：IntentsRestrictedWhileLocked锁屏状态下禁止的域；IntentsSupported支持的域；域为上面介绍的11种类型中的一个或多个|
+	
+	&lt;img src&#x3D;&quot;http:&#x2F;&#x2F;image.liangqili.com&#x2F;SiriKit&#x2F;Intents_plist.png&quot; width&#x3D;&quot;50%&quot; height&#x3D;&quot;50%&quot;&gt; 
+
+#### SiriKit处理流程
+Siri解析出相关信息封装为Intent类型，通过plist中配置的入口文件找到相关类的&#96;- (id)handlerForIntent:(INIntent *)intent&#96;方法，询问具体处理事件的类
+
+&#96;&#96;&#96;objective-c
+&#x2F;&#x2F; 这里是SiriExtension的入口，判断意图类型
 - (id)handlerForIntent:(INIntent *)intent &#123;
-    // 如果是INSendMessageIntent，使用自定义的SendMessageIntentHandler处理
+    &#x2F;&#x2F; 如果是INSendMessageIntent，使用自定义的SendMessageIntentHandler处理
     if ([intent isKindOfClass:[INSendMessageIntent class]]) &#123;
-        SendMessageIntentHandler *SendMsgHandler = [[SendMessageIntentHandler alloc] init];
+        SendMessageIntentHandler *SendMsgHandler &#x3D; [[SendMessageIntentHandler alloc] init];
         return SendMsgHandler;
-    // 如果是INSendPaymentIntent，使用自定义的SendPaymentIntentHandler处理
+    &#x2F;&#x2F; 如果是INSendPaymentIntent，使用自定义的SendPaymentIntentHandler处理
     &#125;else if ([intent isKindOfClass:[INSendPaymentIntent class]]) &#123;
-        SendPaymentIntentHandler *SendPayHandler = [[SendPaymentIntentHandler alloc] init];
+        SendPaymentIntentHandler *SendPayHandler &#x3D; [[SendPaymentIntentHandler alloc] init];
         return SendPayHandler;
-    //其他的自己处理
+    &#x2F;&#x2F;其他的自己处理
     &#125;else &#123;
         return self;
     &#125;
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>找到相应的处理类之后，进入事件处理流程，以INSendMessageIntent为例。</p>
+</li>
+</ol>
 <p><img src="http://image.liangqili.com/SiriKit/Intents_lifecycle.png" width="50%" height="50%"> </p>
 <p><img src="http://image.liangqili.com/SiriKit/Intents_lifecycle_2.jpg" width="50%" height="50%"> </p>
 <p>相关处理方法如下：</p>
-<pre><code class="objective-c">//确认消息发送对象
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F;确认消息发送对象
 - (void)resolveRecipientsForSendMessage:(INSendMessageIntent *)intent withCompletion:(void (^)(NSArray&lt;INPersonResolutionResult *&gt; *resolutionResults))completion &#123;
 &#125;
-// 确认消息发送内容
+&#x2F;&#x2F; 确认消息发送内容
 - (void)resolveContentForSendMessage:(INSendMessageIntent *)intent withCompletion:(void (^)(INStringResolutionResult *resolutionResult))completion &#123;
 &#125; 
-//确认是否可以发送（例如权限鉴定）
+&#x2F;&#x2F;确认是否可以发送（例如权限鉴定）
 - (void)confirmSendMessage:(INSendMessageIntent *)intent completion:(void (^)(INSendMessageIntentResponse *response))completion &#123;
 &#125; 
-// 处理方法，处理发送信息逻辑
+&#x2F;&#x2F; 处理方法，处理发送信息逻辑
 - (void)handleSendMessage:(INSendMessageIntent *)intent completion:(void (^)(INSendMessageIntentResponse *response))completion &#123;
-&#125;  
-</code></pre>
+&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="Intent-UI"><a href="#Intent-UI" class="headerlink" title="Intent UI"></a>Intent UI</h4><p>对于支持自定义界面的 Intent 类型，可以在 Intents UI Extension 中提供更美观的自定义界面。 Custom UI 的实现相对较简单，和 iOS App 的开发一样，都是通过 UIViewController 的子类实现。我们需要在 Intents UI Extension 的 info.plist 文件中设置 initial viewcontroller 或者设置 main storyboard，对于不同类型的 Intent 的界面展示，通过 Child Viewcontrollers 的方式实现差异化界面展示。</p>
 <p>当接收到来自 Intents Extension 的 response 时，系统会唤起 Intents UI Extension 并加载 initial viewcontroller，通过INUIHostedViewSiriProviding协议的configureWithInteraction:context:completion:方法可以获取 intent，比如在发消息功能中，在消息确认发送和发送成功后都会回调一次这个方法。根据 Intent 对象的类型和状态，在收到相关 Intent 的回调时 present 对应的 Child Viewcontroller 即可实现定制化的界面展示。</p>
 <p>这里需要注意的是，Intents UI Extension 的进程并不会在界面销毁后就退出，很可能只是在后台处于休眠状态，下次 response 到来时再被唤醒。</p>
@@ -871,7 +880,7 @@
                 
                   <a href="/hexo/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -998,7 +1007,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit"><span class="nav-number">1.</span> <span class="nav-text">SiriKit</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">可以做什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS12%E4%B9%8B%E5%89%8D%E7%9A%84Siri"><span class="nav-number">1.2.</span> <span class="nav-text">iOS12之前的Siri</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS12%E5%90%8E%E7%9A%84Siri"><span class="nav-number">1.3.</span> <span class="nav-text">iOS12后的Siri</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">SiriKit简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit%E9%9B%86%E6%88%90"><span class="nav-number">3.</span> <span class="nav-text">SiriKit集成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">SiriKit处理流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intent-UI"><span class="nav-number">5.</span> <span class="nav-text">Intent UI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E7%8C%AE%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">文献：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit"><span class="nav-number">1.</span> <span class="nav-text">SiriKit</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">可以做什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS12%E4%B9%8B%E5%89%8D%E7%9A%84Siri"><span class="nav-number">1.2.</span> <span class="nav-text">iOS12之前的Siri</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS12%E5%90%8E%E7%9A%84Siri"><span class="nav-number">1.3.</span> <span class="nav-text">iOS12后的Siri</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">SiriKit简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SiriKit%E9%9B%86%E6%88%90"><span class="nav-number">3.</span> <span class="nav-text">SiriKit集成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intent-UI"><span class="nav-number">4.</span> <span class="nav-text">Intent UI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E7%8C%AE%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">文献：</span></a></li></ol></div>
             
 
           </div>

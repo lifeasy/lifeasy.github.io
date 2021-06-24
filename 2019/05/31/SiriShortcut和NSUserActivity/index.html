@@ -544,75 +544,73 @@
 <li>iOS 12之后</li>
 </ul>
 <h5 id="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"><a href="#添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes" class="headerlink" title="添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes"></a>添加plist，加入NSUserActivityTypes，数组类型，加入自定义的UserActivityTypes</h5><p><img src="http://image.liangqili.com/SiriKit/useractivitytype.png" width="50%" height="50%"> </p>
-<h5 id="添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"><a href="#添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍" class="headerlink" title="添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"></a>添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍</h5><pre><code class="objective-c">//添加按钮
+<h5 id="添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"><a href="#添加add-to-Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍" class="headerlink" title="添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍"></a>添加add to Siri按钮，这里使用系统定义的INUIAddVoiceShortcutButton，自定义的话文章后面有介绍</h5><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F;添加按钮
 - (void)addVoiceShortcutButton &#123;
     if (@available(iOS 12.0, *)) &#123;
-        //此按钮可以自行判断shortcut中的userActivity是否已经添加过，从而显示不同的样式
-        INUIAddVoiceShortcutButton *voiceBtn = [[INUIAddVoiceShortcutButton alloc] initWithStyle:INUIAddVoiceShortcutButtonStyleWhiteOutline];
-        voiceBtn.shortcut = [[INShortcut alloc] initWithUserActivity:[self createRelevantUserActivity]];
-        //按钮点击事件的代理
-        voiceBtn.delegate = self;
-        voiceBtn.translatesAutoresizingMaskIntoConstraints = NO;
-        //按钮需要约束布局，测试设置frame无效
-        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UXY_SCREEN_WIDTH, 400)];
+        &#x2F;&#x2F;此按钮可以自行判断shortcut中的userActivity是否已经添加过，从而显示不同的样式
+        INUIAddVoiceShortcutButton *voiceBtn &#x3D; [[INUIAddVoiceShortcutButton alloc] initWithStyle:INUIAddVoiceShortcutButtonStyleWhiteOutline];
+        voiceBtn.shortcut &#x3D; [[INShortcut alloc] initWithUserActivity:[self createRelevantUserActivity]];
+        &#x2F;&#x2F;按钮点击事件的代理
+        voiceBtn.delegate &#x3D; self;
+        voiceBtn.translatesAutoresizingMaskIntoConstraints &#x3D; NO;
+        &#x2F;&#x2F;按钮需要约束布局，测试设置frame无效
+        UIView *bottomView &#x3D; [[UIView alloc] initWithFrame:CGRectMake(0, 0, UXY_SCREEN_WIDTH, 400)];
         [bottomView addSubview:voiceBtn];
         [[bottomView.centerXAnchor constraintEqualToAnchor:voiceBtn.centerXAnchor] setActive:YES];
         [[bottomView.centerYAnchor constraintEqualToAnchor:voiceBtn.centerYAnchor] setActive:YES];
-        self.tableView.tableFooterView = bottomView;
+        self.tableView.tableFooterView &#x3D; bottomView;
     &#125;
 &#125;
-//创建相关userActivity
+&#x2F;&#x2F;创建相关userActivity
 - (NSUserActivity *)createRelevantUserActivity &#123;
-    NSUserActivity *activity = [[NSUserActivity alloc] initWithActivityType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];
-    //显示在siri 建议或者core spotlight 中的标题
-    activity.title = @&quot;版本信息&quot;;
-    //core spotlight关键词，和siri无关
-    activity.keywords = [NSSet setWithArray:@[@&quot;版本信息&quot;,@&quot;查看版本&quot;]];
-    //携带的用户信息
-    activity.userInfo = @&#123;@&quot;qihoo&quot;:@&quot;checksysteminfo&quot;&#125;;
-    //开启用于检索
-    activity.eligibleForSearch = YES;
-    //ios12 sirikit
+    NSUserActivity *activity &#x3D; [[NSUserActivity alloc] initWithActivityType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];
+    &#x2F;&#x2F;显示在siri 建议或者core spotlight 中的标题
+    activity.title &#x3D; @&quot;版本信息&quot;;
+    &#x2F;&#x2F;core spotlight关键词，和siri无关
+    activity.keywords &#x3D; [NSSet setWithArray:@[@&quot;版本信息&quot;,@&quot;查看版本&quot;]];
+    &#x2F;&#x2F;携带的用户信息
+    activity.userInfo &#x3D; @&#123;@&quot;qihoo&quot;:@&quot;checksysteminfo&quot;&#125;;
+    &#x2F;&#x2F;开启用于检索
+    activity.eligibleForSearch &#x3D; YES;
+    &#x2F;&#x2F;ios12 sirikit
     if (@available(iOS 12.0, *)) &#123;
-        //开启sirikit
-        activity.eligibleForPrediction = YES;
-        //建议语句，会显示在添加Siri捷径的界面中
-        activity.suggestedInvocationPhrase = @&quot;查看版本&quot;;
+        &#x2F;&#x2F;开启sirikit
+        activity.eligibleForPrediction &#x3D; YES;
+        &#x2F;&#x2F;建议语句，会显示在添加Siri捷径的界面中
+        activity.suggestedInvocationPhrase &#x3D; @&quot;查看版本&quot;;
     &#125;
-    //其他相关显示信息，不了解可以查看core spotlight一文
-    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];
-    set.contentDescription = @&quot;检查应用的版本信息&quot;;
-    activity.contentAttributeSet = set;
-    //启用core spotlight，不使用的话可以删掉
-    self.userActivity = activity;
+    &#x2F;&#x2F;其他相关显示信息，不了解可以查看core spotlight一文
+    CSSearchableItemAttributeSet *set &#x3D; [[CSSearchableItemAttributeSet alloc] initWithItemContentType:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;];
+    set.contentDescription &#x3D; @&quot;检查应用的版本信息&quot;;
+    activity.contentAttributeSet &#x3D; set;
+    &#x2F;&#x2F;启用core spotlight，不使用的话可以删掉
+    self.userActivity &#x3D; activity;
     return activity;
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="按钮添加前后样式如下，需要实现代理完成不同的跳转"><a href="#按钮添加前后样式如下，需要实现代理完成不同的跳转" class="headerlink" title="按钮添加前后样式如下，需要实现代理完成不同的跳转"></a>按钮添加前后样式如下，需要实现代理完成不同的跳转</h5><p>userActivity未加入到Siri的状态</p>
 <p><img src="http://image.liangqili.com/SiriKit/addBtnOriginal.jpeg" width="50%" height="50%"> </p>
 <p>userActivity已经加入到Siri的状态</p>
 <p><img src="http://image.liangqili.com/SiriKit/addBtnExist.jpeg" width="50%" height="50%"> </p>
 <p>实现INUIAddVoiceShortcutButtonDelegate代理</p>
-<pre><code class="objective-c">#pragma mark - INUIAddVoiceShortcutButtonDelegate
-//新添加
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#pragma mark - INUIAddVoiceShortcutButtonDelegate
+&#x2F;&#x2F;新添加
 - (void)presentAddVoiceShortcutViewController:(INUIAddVoiceShortcutViewController *)addVoiceShortcutViewController forAddVoiceShortcutButton:(INUIAddVoiceShortcutButton *)addVoiceShortcutButton  API_AVAILABLE(ios(12.0))&#123;
-    //新添加界面的代理
-    addVoiceShortcutViewController.delegate = self;
+    &#x2F;&#x2F;新添加界面的代理
+    addVoiceShortcutViewController.delegate &#x3D; self;
     [self presentViewController:addVoiceShortcutViewController animated:YES completion:nil];
-
+    
 &#125;
-//添加过，去编辑
+&#x2F;&#x2F;添加过，去编辑
 - (void)presentEditVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)editVoiceShortcutViewController forAddVoiceShortcutButton:(INUIAddVoiceShortcutButton *)addVoiceShortcutButton  API_AVAILABLE(ios(12.0))&#123;
-    //编辑界面的代理
-    editVoiceShortcutViewController.delegate = self;
+    &#x2F;&#x2F;编辑界面的代理
+    editVoiceShortcutViewController.delegate &#x3D; self;
     [self presentViewController:editVoiceShortcutViewController animated:YES completion:nil];
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>跳转不同的界面也有不同的代理</p>
 <ul>
 <li>新添加界面的代理INUIAddVoiceShortcutViewControllerDelegate</li>
 </ul>
-<pre><code class="objective-c">#pragma mark - INUIAddVoiceShortcutViewControllerDelegate
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#pragma mark - INUIAddVoiceShortcutViewControllerDelegate
 
 - (void)addVoiceShortcutViewController:(INUIAddVoiceShortcutViewController *)controller didFinishWithVoiceShortcut:(nullable INVoiceShortcut *)voiceShortcut error:(nullable NSError *)error  API_AVAILABLE(ios(12.0))&#123;
     if (!error) &#123;
@@ -629,13 +627,12 @@
     [controller dismissViewControllerAnimated:YES completion:^&#123;
         NSLog(@&quot;取消添加&quot;);
     &#125;];
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="http://image.liangqili.com/SiriKit/addView.jpeg" width="50%" height="50%"> </p>
 <ul>
 <li>已添加，编辑界面代理</li>
 </ul>
-<pre><code class="objective-c">#pragma mark - INUIEditVoiceShortcutViewControllerDelegate
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#pragma mark - INUIEditVoiceShortcutViewControllerDelegate
 
 - (void)editVoiceShortcutViewController:(INUIEditVoiceShortcutViewController *)controller didUpdateVoiceShortcut:(nullable INVoiceShortcut *)voiceShortcut error:(nullable NSError *)error  API_AVAILABLE(ios(12.0))&#123;
     if (!error) &#123;
@@ -658,46 +655,43 @@
     [controller dismissViewControllerAnimated:YES completion:^&#123;
         NSLog(@&quot;取消添加&quot;);
     &#125;];
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="http://image.liangqili.com/SiriKit/editView.jpeg" width="50%" height="50%"> </p>
-<h5 id="AppDelegate中处理跳转信息"><a href="#AppDelegate中处理跳转信息" class="headerlink" title="AppDelegate中处理跳转信息"></a>AppDelegate中处理跳转信息</h5><pre><code class="objective-c">- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler&#123;
-
-    //Siri Shortcut相关
+<h5 id="AppDelegate中处理跳转信息"><a href="#AppDelegate中处理跳转信息" class="headerlink" title="AppDelegate中处理跳转信息"></a>AppDelegate中处理跳转信息</h5><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler&#123;
+    
+    &#x2F;&#x2F;Siri Shortcut相关
     if ([userActivity.activityType isEqualToString:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;]) &#123;
-        NSString *resourceBundle = [[NSBundle mainBundle] pathForResource:@&quot;qihooloan_res&quot; ofType:@&quot;bundle&quot;];
-        UIStoryboard *board = [UIStoryboard storyboardWithName:@&quot;MainSDK&quot; bundle:[NSBundle bundleWithPath:resourceBundle]];
-        UIViewController *vc = [board instantiateViewControllerWithIdentifier:@&quot;CheckSystemInfoViewController&quot;];
+        NSString *resourceBundle &#x3D; [[NSBundle mainBundle] pathForResource:@&quot;qihooloan_res&quot; ofType:@&quot;bundle&quot;];
+        UIStoryboard *board &#x3D; [UIStoryboard storyboardWithName:@&quot;MainSDK&quot; bundle:[NSBundle bundleWithPath:resourceBundle]];
+        UIViewController *vc &#x3D; [board instantiateViewControllerWithIdentifier:@&quot;CheckSystemInfoViewController&quot;];
         [[UIWindow uxy_optimizedVisibleViewController].navigationController pushViewController:vc animated:YES];
     &#125;
     return YES;
-&#125;
-</code></pre>
-<h5 id="自定义Siri按钮及跳转"><a href="#自定义Siri按钮及跳转" class="headerlink" title="自定义Siri按钮及跳转"></a>自定义Siri按钮及跳转</h5><pre><code class="objective-c">//判断 可以自定义添加到Siri按钮
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="自定义Siri按钮及跳转"><a href="#自定义Siri按钮及跳转" class="headerlink" title="自定义Siri按钮及跳转"></a>自定义Siri按钮及跳转</h5><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F;判断 可以自定义添加到Siri按钮
 - (void)isVoiceShortcutExist &#123;
-    //回调再子线程，如操作UI需要回到主线程
+    &#x2F;&#x2F;回调再子线程，如操作UI需要回到主线程
     if (@available(iOS 12.0, *)) &#123;
         [[INVoiceShortcutCenter sharedCenter] getAllVoiceShortcutsWithCompletion:^(NSArray&lt;INVoiceShortcut *&gt; * _Nullable voiceShortcuts, NSError * _Nullable error) &#123;
             if (!error) &#123;
                 for (INVoiceShortcut *shortcut in voiceShortcuts) &#123;
-                    //存在
+                    &#x2F;&#x2F;存在
                     if ([shortcut.shortcut.userActivity.activityType isEqualToString:@&quot;com.qihoo.corp.loan.checksysteminfo&quot;]) &#123;
                         dispatch_async(dispatch_get_main_queue(), ^&#123;
-                            //添加一个按钮，可以点击跳转INUIEditVoiceShortcutViewController，INUIEditVoiceShortcutViewController需要自己生成
+                            &#x2F;&#x2F;添加一个按钮，可以点击跳转INUIEditVoiceShortcutViewController，INUIEditVoiceShortcutViewController需要自己生成
                         &#125;);
                     &#125; else &#123;
-                        //不存在
+                        &#x2F;&#x2F;不存在
                         dispatch_async(dispatch_get_main_queue(), ^&#123;
-                            //添加一个按钮，可以点击跳转INUIAddVoiceShortcutViewController，INUIAddVoiceShortcutViewController需要自己生成
+                            &#x2F;&#x2F;添加一个按钮，可以点击跳转INUIAddVoiceShortcutViewController，INUIAddVoiceShortcutViewController需要自己生成
                         &#125;);
                     &#125;
                 &#125;
             &#125;
-
+            
         &#125;];
     &#125;
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -859,7 +853,7 @@
                 
                   <a href="/hexo/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
