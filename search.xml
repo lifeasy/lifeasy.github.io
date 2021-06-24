@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[图片测试]]></title>
+    <url>%2Fhexo%2F2021%2F06%2F24%2Fios-static-lib%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo操作]]></title>
     <url>%2Fhexo%2F2021%2F03%2F31%2FHexo%E6%93%8D%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[新建$ hexo new hexo_handle 标题分类title: Hexo 操作 date: 2021-03-31 10:44:58 tags: - hexo categories: - note 操作$ hexo clean $ hexo g $ hexo d 安装hexo-cli$ npm install -g hexo-cli 更新$ npm update hexo 遇到问题1、&#123;% extends '_layout.swig' %&#125; $ npm i hexo-renderer-swig 2、external_link:true Deprecated external_link: enable: true # Open external links in new tab field: site # Apply to the whole site exclude: &#39;&#39; 3、highlight Deprecated highlight: enable: true auto_detect: false line_number: true tab_replace: &#39;&#39; wrap: true hljs: false prismjs: enable: false preprocess: true line_number: true tab_replace: &#39;&#39;]]></content>
